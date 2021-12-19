@@ -12,7 +12,7 @@
         <div class="container">
             <div class="box">
                 <h2>User Login</h2>
-                <form action="{{route('xl-login')}}" method="POST">
+                <form action="{{route('xl-dang-nhap')}}" method="POST">
                 @csrf
                     <div class="box-group">
                         <input class="input-text" type="text" placeholder="Username" name="ten_dang_nhap">
