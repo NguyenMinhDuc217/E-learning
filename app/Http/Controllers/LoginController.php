@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\DangNhapRequest;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -12,7 +12,7 @@ class LoginController extends Controller
         return View('login');
     }
 
-    public function xuLyLogin(Request $request){
+    public function xuLyLogin(DangNhapRequest $request){
         if(Auth::attempt(['username'=>$request->ten_dang_nhap,'password'=>$request->mat_khau])){
             return redirect()->route('trang-chu');
         }
