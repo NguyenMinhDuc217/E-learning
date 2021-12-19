@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')->name('trang-chu');
 });
+Route::get('/dang-nhap', [LoginController::class, 'login'])->name("login")->middleware('guest');
+Route::post('/dang-nhap', [LoginController::class,'xuLyLogin'])->name("xl-login");
