@@ -14,8 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome')->name('trang-chu');
-});
+
 Route::get('/dang-nhap', [LoginController::class, 'login'])->name("login")->middleware('guest');
 Route::post('/dang-nhap', [LoginController::class,'xuLyLogin'])->name("xl-login");
+
+//Các route phải qua đăng nhập
+Route::middleware('auth')->group(function(){
+    Route::get('/', function () {
+        return view('welcome')->name('trang-chu');
+    });
+});
