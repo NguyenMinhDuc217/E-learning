@@ -198,7 +198,7 @@ h1::after {
   FACULTY STYLES 
   ===================================*/
 #faculty-sec {
-    background-color: #000;
+    background-color: rgb(89 99 161);
     color: #fff;
 }
 
@@ -262,7 +262,9 @@ h1::after {
   Footer STYLES 
   ===================================*/
 #footer {
-    padding:5px 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     background-color:#2d3d5a;
     text-align:right;
     color:#fff;

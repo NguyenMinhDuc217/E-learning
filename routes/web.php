@@ -21,6 +21,6 @@ Route::get('/dang-xuat', [LoginController::class,'dangXuat'])->name("dang-xuat")
 //Các route phải qua đăng nhập
 Route::middleware('auth')->group(function(){
     Route::get('/', function () {
-        return view('layout');
+        return view('layouts/layout');
     })->name("trang-chu");
 });
