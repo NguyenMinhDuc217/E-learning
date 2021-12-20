@@ -15,8 +15,7 @@ class LoginController extends Controller
     public function xuLyLogin(DangNhapRequest $request){
         if(Auth::attempt(['username'=>$request->ten_dang_nhap,'password'=>$request->mat_khau])){
             
-            $user=Auth::user();
-            echo " $user->ho_ten-$user->email";
+            return redirect()-> route('trang-chu');
         }else{
             echo"khong thanh cong";
         }
