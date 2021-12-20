@@ -21,6 +21,6 @@ Route::post('/dang-nhap', [LoginController::class,'xuLyLogin'])->name("xl-dang-n
 //Các route phải qua đăng nhập
 Route::middleware('auth')->group(function(){
     Route::get('/', function () {
-        return view('welcome');
+        return view('layout');
     })->name("trang-chu");
 });

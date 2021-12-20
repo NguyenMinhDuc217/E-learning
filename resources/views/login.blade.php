@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>LOGIN</title>
-    <link href="{{ asset('theme.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/theme.css') }}" rel="stylesheet">
 </head>
 
 <body>
