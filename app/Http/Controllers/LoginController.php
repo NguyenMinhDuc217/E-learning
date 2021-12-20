@@ -22,6 +22,6 @@ class LoginController extends Controller
     }
     public function dangXuat(){
         Auth::logout();
-        return redirect()-> route('login');
+        return redirect()-> route('dang-nhap');
     }
 }
