@@ -15,24 +15,21 @@
                 <form action="{{route('xl-dang-nhap')}}" method="POST">
                 @csrf
                     <div class="box-group">
-                        <input class="input-text" type="text" placeholder="Username" name="ten_dang_nhap">
+                        <input class="input-text" type="text" placeholder="Tên đăng nhập" name="ten_dang_nhap">
                         @error('ten_dang_nhap')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="box-group">
-                        <input class="input-text" type="password" placeholder="Password" name="mat_khau">
+                        <input class="input-text" type="password" placeholder="Mật khẩu" name="mat_khau">
                         @error('mat_khau')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class=" box-group remember-user">
-                        <input class="input-checkbox" type="checkbox" name="remember" value="1">Ghi nhớ tài khoản
-                    </div>
-                    <button type="submit">Login</button>
+                    <button type="submit">Đăng nhập</button>
                 </form>
                 <div class="box-footer">
-                    <p><a href="#">Forgot Password?</a></p>
+                    <p><a href="{{route('dang-ky')}}">Đăng ký</a></p>
                 </div>
             </div>
         </div>
