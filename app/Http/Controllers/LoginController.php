@@ -18,8 +18,10 @@ class LoginController extends Controller
             if($user==1){
                 return redirect()-> route('trang-chu');
             }
-            else{
-                return redirect()-> route('trang-chu');
+            else if($user==2){
+                return redirect()-> route('trang-chu-giang-vien');
+            }else{              
+                return redirect()-> route('trang-chu-sinh-vien');
             }
         }else{
             echo"khong thanh cong";

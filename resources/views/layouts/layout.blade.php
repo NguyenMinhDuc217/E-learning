@@ -15,6 +15,8 @@
     <link href="{{asset('assets/css/flexslider.css')}}" rel="stylesheet" />
     <!-- CUSTOM STYLE CSS -->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
+    <link href="{{asset('assets/css/index.css')}}" rel="stylesheet" />
+
     <!-- Google	Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
 </head>

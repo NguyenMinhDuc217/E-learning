@@ -30,7 +30,7 @@
                     </div>
                     <!-- Email -->
                     <div class="box-group">
-                        <input class="input-text" type="text" placeholder="Email" name="email">
+                        <input class="input-text" type="email" placeholder="Email" name="email">
                         @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

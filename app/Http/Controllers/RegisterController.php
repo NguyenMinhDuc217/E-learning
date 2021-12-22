@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\RegisterRequest;
 use App\Models\TaiKhoan;
 use Illuminate\Support\Facades\Hash;
 
@@ -13,7 +13,7 @@ class RegisterController extends Controller
         return View('register');
     }
 
-    public function xuLyRegister(Request $request){
+    public function xuLyRegister(RegisterRequest $request){
         if($request->mat_khau==$request->confirm_mat_khau){
             $taiKhoan = new TaiKhoan;
             $taiKhoan->ho_ten=$request->ho_ten;

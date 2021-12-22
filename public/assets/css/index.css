@@ -1,0 +1,38 @@
+.class{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 17.5rem;
+    padding-top: 1.5rem;
+    align-content: center;
+    justify-content: left;
+    align-items: center;
+}
+.lop-hoc{
+    background-clip: padding-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    margin-bottom: 3.5rem;
+    margin-right: 2.5rem;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+    width: 18.75rem;
+    height: auto;
+}
+#ListClass {
+    background-color: rgb(255, 255, 255);
+}
+
+#ListClass .header-line {
+    color: rgb(28, 167, 15);
+}
+.card{
+    border: 1px solid grey;
+    
+}
+.card-body{
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
