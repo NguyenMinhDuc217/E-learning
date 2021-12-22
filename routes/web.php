@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LopHocController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,7 @@ Route::get('/dang-xuat', [LoginController::class,'dangXuat'])->name("dang-xuat")
 //Các route phải qua đăng nhập
 Route::middleware('auth')->group(function(){
     Route::get('/', function () {
-        return view('layouts/layout');
+        return view('admin/trang-chu');
     })->name("trang-chu");
+    Route::get('admin/lop-hoc', [LopHocController::class,'layDanhSach'])->name('danh-sach-lop-hoc');
 });

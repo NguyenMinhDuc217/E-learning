@@ -39,7 +39,7 @@ class TaiKhoanSeeder extends Seeder
         $tk->email=('sinvien@gmail.com');
         $tk->sdt=('0123498765');
         $tk->ho_ten=('Sinhvien');
-        $tk->loai_tai_khoan_id=('2');
+        $tk->loai_tai_khoan_id=('3');
         $tk->save();
     }
 }

@@ -15,9 +15,11 @@ class LopHoc extends Migration
     {
         Schema::create('lop_hoc', function (Blueprint $table){
             $table->id();
+            $table->string('ma_lop');
+            $table->string('ten_lop');
             $table->string('banner');
             $table->string('logo');
-            $table->string('tai_khoan_id');
+            $table->integer('tai_khoan_id');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -34,11 +34,13 @@
             </div>
             <div class="navbar-collapse collapse move-me">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{route('trang-chu')}}">HOME</a></li>
+                    <!-- <li><a href="{{route('trang-chu')}}">HOME</a></li>
                     <li><a href="#features-sec">FEATURES</a></li>
                     <li><a href="#faculty-sec">MEMBER</a></li>
                     <li><a href="#course-sec">COURSES</a></li>
-                    <li><a href="{{route('dang-xuat')}}">LOGOUT</a></li>
+                    <li><a href="{{route('dang-xuat')}}">LOGOUT</a></li> -->
+
+                    @yield('menu')
                 </ul>
             </div>
         </div>
@@ -102,9 +104,7 @@
         </div>
     </div> -->
     <!-- CONTACT SECTION END-->
-    <div id="footer">
-        &copy 2014 yourdomain.com | All Rights Reserved | <a href="http://binarytheme.com" style="color: #fff" target="_blank">Design by : binarytheme.com</a>
-    </div>
+    
     <!-- FOOTER SECTION END-->
 
     <!--  Jquery Core Script -->
