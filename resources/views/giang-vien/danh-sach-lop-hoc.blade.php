@@ -1,8 +1,8 @@
 @extends("layouts/layout")
 @section("menu")
-<li><a href="{{route('trang-chu-sinh-vien')}}">TRANG CHỦ</a></li>
-<li><a href="#">TẠO LỚP HỌC</a></li>
-<li><a><img src="{{asset('assets/img/contact.jpg')}}"></a>
+<li><a href="{{route('trang-chu-giang-vien')}}">TRANG CHỦ</a></li>
+<li><a href="{{route('tao-lop')}}">TẠO LỚP HỌC</a></li>
+<li><a><img src="{{asset('assets/img/contact.jpg')}}">{{Auth()->user()->username}}</a>
     <ul>
         <li><a href="#">Thông tin</a></li>
         <li><a href="{{route('dang-xuat')}}">Đăng xuất</a></li>
@@ -19,17 +19,17 @@
         </div>
         <div class="row">
             <div class="class">
-                @for ($i = 0; $i < 10; $i++)
+                @foreach($dsLopHoc as $LopHoc)
                 <div class="lop-hoc">
                     <div class="card" style="width: 18rem;">
                         <img src="{{asset('assets/img/building.jpg')}}" class="card-img-top" height="200px" width="100%">
                         <div class="card-body">
-                            <h5 class="card-title">Lớp học {{$i+1}}</h5>
-                            <a href="#" class="btn btn-success">Vào học</a>
+                            <h5 class="card-title">{{$LopHoc->ten_lop}}</h5>
+                            <a href="#" class="btn btn-success">Vào dạy</a>
                         </div>
                     </div>
                 </div>
-                @endfor
+                @endforeach
             </div>
         </div>
     </div>

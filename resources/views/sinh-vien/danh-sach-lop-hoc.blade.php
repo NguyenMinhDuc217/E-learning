@@ -1,9 +1,9 @@
 @extends("layouts/layout")
 @section("menu")
-<li><a href="{{route('trang-chu-giang-vien')}}">TRANG CHỦ</a></li>
+<li><a href="{{route('trang-chu-sinh-vien')}}">TRANG CHỦ</a></li>
 <li><a href="{{route('tham-gia-lop')}}">THAM GIA LỚP HỌC</a></li>
 <li><a href="#">BÀI TẬP</a></li>
-<li><a><img src="{{asset('assets/img/contact.jpg')}}"></a>
+<li><a><img src="{{asset('assets/img/contact.jpg')}}">{{Auth()->user()->username}}</a>
     <ul>
         <li><a href="#">Thông tin</a></li>
         <li><a href="{{route('dang-xuat')}}">Đăng xuất</a></li>
