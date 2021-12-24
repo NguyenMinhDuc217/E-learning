@@ -9,6 +9,7 @@
     <title>E-learning</title>
     <!-- BOOTSTRAP CORE STYLE CSS -->
     <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet" />
+    
     <!-- FONT AWESOME CSS -->
     <link href="{{asset('assets/css/font-awesome.min.css')}}" rel="stylesheet" />
     <!-- FLEXSLIDER CSS -->
@@ -26,21 +27,10 @@
     <div class="navbar navbar-inverse navbar-fixed-top " id="menu">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <a class="navbar-brand" href="#"><img class="logo-custom" src="assets/img/logo180-50.png" alt="" /></a>  
             </div>
             <div class="navbar-collapse collapse move-me">
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- <li><a href="{{route('trang-chu')}}">HOME</a></li>
-                    <li><a href="#features-sec">FEATURES</a></li>
-                    <li><a href="#faculty-sec">MEMBER</a></li>
-                    <li><a href="#course-sec">COURSES</a></li>
-                    <li><a href="{{route('dang-xuat')}}">LOGOUT</a></li> -->
-
                     @yield('menu')
                 </ul>
             </div>

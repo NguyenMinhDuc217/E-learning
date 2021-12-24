@@ -29,7 +29,8 @@
                     <button type="submit">Đăng nhập</button>
                 </form>
                 <div class="box-footer">
-                    <p><a href="{{route('dang-ky')}}">Đăng ký</a></p>
+                    <p><a href="{{route('dang-ky')}} ">Đăng ký</a></p>
+                    <p><a href="{{route('dang-ky')}}">Quên mặt khẩu</a></p>
                 </div>
             </div>
         </div>
