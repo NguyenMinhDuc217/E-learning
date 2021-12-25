@@ -9,4 +9,8 @@ class LoaiTaiKhoan extends Model
 {
     use HasFactory;
     protected $table ="loai_tai_khoan";
+
+    public function dsTaiKhoan(){
+        return $this->hasMany('App\Models\TaiKhoan');
+    }
 }

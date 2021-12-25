@@ -23,6 +23,7 @@
                     <img src="{{asset('assets/img/building.jpg')}}" class="card-img-top" height="150px" width="100%">
                     <div class="card-body">
                         <h4 class="card-title">{{$LopHoc->ten_lop}}</h4>
+                        <h5>{{$LopHoc->taiKhoan->ho_ten}}</h5>
                     </div>
                     <div class="card-footer border-0 bg-white">
                         <a href="#" class="btn btn-success">Vào dạy</a>

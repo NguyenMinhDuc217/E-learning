@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\LopHoc;
 use Illuminate\Support\Facades\Auth;
+use TaiKhoan;
 
 class LopHocController extends Controller
 {
@@ -15,10 +16,14 @@ class LopHocController extends Controller
         $dsLopHoc = LopHoc::all();
         return view('admin/lop-hoc', compact('dsLopHoc'));
     }
-    function layDanhSachGV()
+    function layDanhSachLopGV()
     {
         $dsLopHoc = LopHoc::where('tai_khoan_id','=',Auth()->user()->id)->get();
         return view('giang-vien/danh-sach-lop-hoc', compact('dsLopHoc'));
+    }function layDanhSachLopSV()
+    {
+        $taiKhoan = Auth()->user();
+        return view('sinh-vien/danh-sach-lop-hoc', compact('taiKhoan'));
     }
     function taoLop()
     {

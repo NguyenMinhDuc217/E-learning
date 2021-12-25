@@ -18,19 +18,21 @@
         </div>
     </div>
     <div class="row">
-        @for ($i = 1; $i < 10; $i++)
+       @foreach($taiKhoan->dsLop as $lopHoc)
          <div class="col-md-3 mb-2">
             <div class="card h-100">
                 <img src="{{asset('assets/img/building.jpg')}}" class="card-img-top" height="150px" width="100%">
                 <div class="card-body">
-                    <h4 class="card-title">Lop hoc{{$i}}</h4>
+                    <h4 class="card-title">{{$lopHoc->ten_lop}}</h4>
+                    <h5 class="card-title">{{$lopHoc->taiKhoan->ho_ten}}</h5>
+
                 </div>
                 <div class="card-footer border-0 bg-white">
                     <a href="#" class="btn btn-success">Vào dạy</a>
                 </div>
             </div>
          </div>
-            @endfor
+        @endforeach
     </div>
 </div>
 @endsection

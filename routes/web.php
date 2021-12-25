@@ -16,14 +16,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/', function () {
         return view('admin/trang-chu');
     })->name("trang-chu");
-    Route::get('/sinh-vien', function () {
-        return view('sinh-vien/danh-sach-lop-hoc');
-    })->name("trang-chu-sinh-vien");
+    Route::get('/sinh-vien', [LopHocController::class, 'layDanhSachLopSV'])->name("trang-chu-sinh-vien");
     Route::get('/sinh-vien/tham-gia-lop', function () {
         return view('sinh-vien/tham-gia-lop');
     })->name("tham-gia-lop");
 
-    Route::get('/giang-vien', [LopHocController::class, 'layDanhSachGV'])->name("trang-chu-giang-vien");
+    Route::get('/giang-vien', [LopHocController::class, 'layDanhSachLopGV'])->name("trang-chu-giang-vien");
     Route::get('/giang-vien/tao-lop', [LopHocController::class, 'taoLop'])->name("tao-lop");
     Route::post('/giang-vien/tao-lop', [LopHocController::class, 'xlTaoLop'])->name("xl-tao-lop");
     

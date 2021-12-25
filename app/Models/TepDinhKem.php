@@ -10,9 +10,9 @@ class TepDinhKem extends Model
     use HasFactory;
     protected $table ="tep_dinh_kem";
     public function bai(){
-        return $this->belongsTo('App\Bai');
+        return $this->belongsTo('App\Models\Bai');
     }
     public function binhLuan(){
-        return $this->belongsTo('App\BinhLuan');
+        return $this->belongsTo('App\Models\BinhLuan');
     }
 }

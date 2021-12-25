@@ -10,9 +10,9 @@ class Bai extends Model
     use HasFactory;
     protected $table ="bai";
     public function lopHoc(){
-        return $this->belongsTo('App\LopHoc');
+        return $this->belongsTo('App\Models\LopHoc');
     }
     public function loaiBai(){
-        return $this->belongsTo('App\LoaiBai');
+        return $this->belongsTo('App\Models\LoaiBai');
     }
 }
