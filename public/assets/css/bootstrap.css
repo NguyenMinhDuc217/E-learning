@@ -3142,9 +3142,9 @@ tbody.collapse.in {
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 160px;
-  padding: 5px 0;
-  margin: 2px 0 0;
+  max-width: 160px;
+  padding: 15px 0;
+  margin: 6px 0 0;
   font-size: 14px;
   text-align: left;
   list-style: none;
@@ -3213,6 +3213,19 @@ tbody.collapse.in {
   right: 0;
   left: auto;
 }
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #212529;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+}
 .dropdown-menu-left {
   right: auto;
   left: 0;
@@ -3261,7 +3274,9 @@ tbody.collapse.in {
 }
 .btn-group,
 .btn-group-vertical {
-  position: relative;
+  position: absolute;
+  right:0;
+  margin-right: 10px;
   display: inline-block;
   vertical-align: middle;
 }

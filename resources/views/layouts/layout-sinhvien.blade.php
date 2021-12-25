@@ -33,12 +33,16 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{route('trang-chu-sinh-vien')}}">TRANG CHỦ</a></li>
                     <li><a href="{{route('tham-gia-lop')}}">THAM GIA LỚP HỌC</a></li>
-                    <li><a href="#">BÀI TẬP</a></li>
-                    <li><a><img src="{{asset('assets/img/faculty/2.jpg')}}">{{Auth()->user()->username}}</a>
-                        <ul>
-                            <li><a href="#">Thông tin</a></li>
-                            <li><a href="{{route('dang-xuat')}}">Đăng xuất</a></li>
-                        </ul>
+                    <li>
+                        <div class="dropdown" style="padding: 15px 5px;">
+                            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{strtoupper(Auth()->user()->username)}}
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenu2">
+                                <a class="dropdown-item btn" href="#">Thông tin</a>
+                                <a class="dropdown-item btn" href="{{route('dang-xuat')}}">Đăng xuất</a>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>

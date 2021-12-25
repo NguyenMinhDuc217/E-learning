@@ -17,9 +17,8 @@ class LopHoc extends Migration
             $table->id();
             $table->string('ma_lop');
             $table->string('ten_lop');
-            $table->string('banner');
-            $table->string('logo');
             $table->integer('tai_khoan_id');
+            $table->string('banner'); 
             $table->timestamps();
             $table->softDeletes();
         });

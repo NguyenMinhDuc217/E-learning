@@ -17,13 +17,13 @@
                     <div class="box-group">
                         <input class="input-text" type="text" placeholder="Tên đăng nhập" name="ten_dang_nhap">
                         @error('ten_dang_nhap')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="box-group">
                         <input class="input-text" type="password" placeholder="Mật khẩu" name="mat_khau">
                         @error('mat_khau')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <button type="submit">Đăng nhập</button>

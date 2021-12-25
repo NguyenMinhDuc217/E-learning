@@ -11,12 +11,14 @@
     <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet" />
 
     <!-- FONT AWESOME CSS -->
-    <link href="{{asset('assets/css/font-awesome.min.css')}}" rel="stylesheet" />
+    <!-- <link href="{{asset('assets/css/font-awesome.min.css')}}" rel="stylesheet" /> -->
     <!-- FLEXSLIDER CSS -->
     <link href="{{asset('assets/css/flexslider.css')}}" rel="stylesheet" />
     <!-- CUSTOM STYLE CSS -->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
     <link href="{{asset('assets/css/index.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
 
     <!-- Google	Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
@@ -33,11 +35,16 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{route('trang-chu-giang-vien')}}">TRANG CHỦ</a></li>
                     <li><a href="{{route('tao-lop')}}">TẠO LỚP HỌC</a></li>
-                    <li><a><img src="{{asset('assets/img/faculty/1.jpg')}}">{{Auth()->user()->username}}</a>
-                        <ul>
-                            <li><a href="#">Thông tin</a></li>
-                            <li><a href="{{route('dang-xuat')}}">Đăng xuất</a></li>
-                        </ul>
+                    <li >
+                        <div class="dropdown" style="padding: 15px 5px;">
+                            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{strtoupper(Auth()->user()->username)}}
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-left"  aria-labelledby="dropdownMenu2">
+                                <a class="dropdown-item btn" href="#">Thông tin</a>
+                                <a class="dropdown-item btn" href="{{route('dang-xuat')}}">Đăng xuất</a>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>

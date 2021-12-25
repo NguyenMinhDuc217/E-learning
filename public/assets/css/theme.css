@@ -63,6 +63,14 @@ button{
     transition: 1s;
     box-shadow: 8px 8px 10px #bcc4c6,-8px -8px 10px #ffffff;
 }
+.alert-danger{
+    border-radius: 50px;
+    margin-top: 5px;
+    padding:10px 10px 10px 10px;
+    color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
 button:hover{
     background-color: #3b058a;
 }

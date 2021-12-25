@@ -61,6 +61,7 @@ body {
     padding: 10px 10px;
     background-color: rgba(28, 43, 75, 1);
     list-style: none;
+    text-align: right;
 }
 .navbar-inverse .navbar-nav li>ul a{
     color: #fff;
