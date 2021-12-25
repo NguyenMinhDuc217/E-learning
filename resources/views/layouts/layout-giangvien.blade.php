@@ -9,7 +9,7 @@
     <title>E-learning</title>
     <!-- BOOTSTRAP CORE STYLE CSS -->
     <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet" />
-    
+
     <!-- FONT AWESOME CSS -->
     <link href="{{asset('assets/css/font-awesome.min.css')}}" rel="stylesheet" />
     <!-- FLEXSLIDER CSS -->
@@ -27,11 +27,18 @@
     <div class="navbar navbar-inverse navbar-fixed-top " id="menu">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#"><img class="logo-custom" src="{{asset('assets/img/logo180-50.png')}}" alt="" /></a>  
+                <a class="navbar-brand" href="#"><img class="logo-custom" src="{{asset('assets/img/logo180-50.png')}}" alt="" /></a>
             </div>
             <div class="navbar-collapse collapse move-me">
                 <ul class="nav navbar-nav navbar-right">
-                    @yield('menu')
+                    <li><a href="{{route('trang-chu-giang-vien')}}">TRANG CHỦ</a></li>
+                    <li><a href="{{route('tao-lop')}}">TẠO LỚP HỌC</a></li>
+                    <li><a><img src="{{asset('assets/img/faculty/1.jpg')}}">{{Auth()->user()->username}}</a>
+                        <ul>
+                            <li><a href="#">Thông tin</a></li>
+                            <li><a href="{{route('dang-xuat')}}">Đăng xuất</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -95,7 +102,7 @@
         </div>
     </div> -->
     <!-- CONTACT SECTION END-->
-    
+
     <!-- FOOTER SECTION END-->
 
     <!--  Jquery Core Script -->

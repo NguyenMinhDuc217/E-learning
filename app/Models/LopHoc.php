@@ -16,4 +16,5 @@ class LopHoc extends Model
     public function dstaiKhoan(){
         return $this->belongsToMany('App\Models\TaiKhoan','tham_gia_lop');
     }
+    
 }

@@ -1,15 +1,4 @@
-@extends("layouts/layout")
-@section("menu")
-<li><a href="{{route('trang-chu-giang-vien')}}">TRANG CHỦ</a></li>
-<li><a href="{{route('tao-lop')}}">TẠO LỚP HỌC</a></li>
-<li><a><img src="{{asset('assets/img/contact.jpg')}}">{{Auth()->user()->username}}</a>
-    <ul>
-        <li><a href="#">Thông tin</a></li>
-        <li><a href="{{route('dang-xuat')}}">Đăng xuất</a></li>
-    </ul>
-</li>
-@endsection
-
+@extends("layouts/layout-giangvien")
 @section("main-content")
 <div class="container set-pad">
     <div class="row text-center">

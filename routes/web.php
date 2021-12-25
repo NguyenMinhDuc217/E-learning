@@ -17,9 +17,8 @@ Route::middleware('auth')->group(function () {
         return view('admin/trang-chu');
     })->name("trang-chu");
     Route::get('/sinh-vien', [LopHocController::class, 'layDanhSachLopSV'])->name("trang-chu-sinh-vien");
-    Route::get('/sinh-vien/tham-gia-lop', function () {
-        return view('sinh-vien/tham-gia-lop');
-    })->name("tham-gia-lop");
+    Route::get('/sinh-vien/tham-gia-lop',[LopHocController::class, 'thamGiaLop'])->name("tham-gia-lop");
+    Route::post('/sinh-vien/tham-gia-lop',[LopHocController::class, 'xlThamGiaLop'])->name("xl-tham-gia-lop");
 
     Route::get('/giang-vien', [LopHocController::class, 'layDanhSachLopGV'])->name("trang-chu-giang-vien");
     Route::get('/giang-vien/tao-lop', [LopHocController::class, 'taoLop'])->name("tao-lop");
