@@ -53,7 +53,28 @@ class LopHocController extends Controller
         $tgl->tai_khoan_id = Auth()->user()->id;
         $tgl->lop_hoc_id =$lopHoc->id;
         $tgl->save();
-
         return redirect()-> route('trang-chu-sinh-vien');
+    }
+    function chiTietLopHocGV($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        return view('giang-vien/chi-tiet-lop-hoc',compact('lopHoc'));
+    }
+    function dsSinhVienGV($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        $soLuongSV=$lopHoc->dstaiKhoan->count();
+        return view('giang-vien/danh-sach-sinh-vien',compact('lopHoc','soLuongSV'));
+    }
+    function chiTietLopHocSV($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        return view('sinh-vien/chi-tiet-lop-hoc',compact('lopHoc'));
+    }
+    function dsSinhVienSV($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        $soLuongSV=$lopHoc->dstaiKhoan->count();
+        return view('sinh-vien/danh-sach-sinh-vien',compact('lopHoc','soLuongSV'));
     }
 }

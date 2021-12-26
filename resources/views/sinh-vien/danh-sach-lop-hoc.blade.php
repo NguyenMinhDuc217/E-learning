@@ -17,7 +17,7 @@
 
                 </div>
                 <div class="card-footer border-0 bg-white">
-                    <a href="#" class="btn btn-success">Vào học</a>
+                    <a href="{{route('chi-tiet-lop-hoc-sv',['id'=>$lopHoc->id])}}" class="btn btn-success">Vào học</a>
                     <div class="btn-group">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v"></i>
                         </button>

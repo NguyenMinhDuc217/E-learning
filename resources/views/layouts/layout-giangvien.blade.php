@@ -18,6 +18,7 @@
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
     <link href="{{asset('assets/css/index.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 
     <!-- Google	Fonts -->
@@ -38,10 +39,10 @@
                     <li >
                         <div class="dropdown" style="padding: 15px 5px;">
                             <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{strtoupper(Auth()->user()->username)}}
+                            {{Auth()->user()->ho_ten}}
                             </button>
                             <div class="dropdown-menu dropdown-menu-left"  aria-labelledby="dropdownMenu2">
-                                <a class="dropdown-item btn" href="#">Thông tin</a>
+                                <a class="dropdown-item btn" href="{{route('thong-tin-gv')}}">Thông tin</a>
                                 <a class="dropdown-item btn" href="{{route('dang-xuat')}}">Đăng xuất</a>
                             </div>
                         </div>
