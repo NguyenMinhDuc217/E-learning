@@ -2,9 +2,9 @@
 @section("menu")
 <li><a href="{{route('trang-chu')}}">TRANG CHỦ</a></li>
 <li><a href="{{route('danh-sach-lop-hoc' )}}">LỚP</a></li>
-<li><a href="#faculty-sec">GIÁO VIÊN</a></li>
-<li><a href="#course-sec">SINH VIÊN</a></li>
-<li><a href="{{route('dang-xuat')}}">ĐĂNG XUẤT</a></li>
+<li><a href="{{route('danh-sach-giao-vien' )}}">GIÁO VIÊN</a></li>
+<li><a href="{{route('danh-sach-sinh-vien' )}}">SINH VIÊN</a></li>
+<li><a href="{{route('dang-xuat')}}">ĐĂNG XUẤT</a></li>>
            
 @endsection
 

@@ -4,7 +4,7 @@
 <li><a href="{{route('danh-sach-lop-hoc' )}}">LỚP</a></li>
 <li><a href="{{route('danh-sach-giao-vien' )}}">GIÁO VIÊN</a></li>
 <li><a href="{{route('danh-sach-sinh-vien' )}}">SINH VIÊN</a></li>
-<li><a href="{{route('dang-xuat')}}">ĐĂNG XUẤT</a></li>>
+<li><a href="{{route('dang-xuat')}}">ĐĂNG XUẤT</a></li>
 
 @endsection
 
@@ -27,16 +27,23 @@
             <table>
                 <tr>
                     <th>ID</th>
-                    <th>Mã lớp</th>
-                    <th>Tên lớp</th>
-                    <th>Ngày tạo</th>
+                    <th>Username</th>
+                    <!-- <th>Password</th> -->
+                    <th>Email</th>
+                    <th>Họ tên</th>
+                    <th>SĐT</th>
+                    <th>Tài Khoản</th>
                 </tr>
-                @forelse($dsLopHoc as $LopHoc)
+                @forelse($dsGiaoVien as $GiaoVien)
                 <tr>
-                    <td>{{ $LopHoc->id }}</td>
-                    <td>{{ $LopHoc->ma_lop }}</td>
-                    <td>{{ $LopHoc->ten_lop }}</td>
-                    <td>{{ $LopHoc->created_at }}</td>
+                    <td>{{ $GiaoVien->id }}</td>
+                    <td>{{ $GiaoVien->username }}</td>
+                    <!-- <td>{{ $GiaoVien->password }}</td> -->
+                    <td>{{ $GiaoVien->email }}</td>
+                    <td>{{ $GiaoVien->ho_ten }}</td>
+                    <td>{{ $GiaoVien->sdt }}</td>
+                    <td>{{ $GiaoVien->loai_tai_khoan_id }}</td>
+                    <td>{{ $GiaoVien->created_at }}</td>
                 </tr>
                 @empty
                 <tr>

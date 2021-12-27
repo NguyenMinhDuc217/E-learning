@@ -27,16 +27,23 @@
             <table>
                 <tr>
                     <th>ID</th>
-                    <th>Mã lớp</th>
-                    <th>Tên lớp</th>
-                    <th>Ngày tạo</th>
+                    <th>Username</th>
+                    <!-- <th>Password</th> -->
+                    <th>Email</th>
+                    <th>Họ tên</th>
+                    <th>SĐT</th>
+                    <th>Tài Khoản</th>
                 </tr>
-                @forelse($dsLopHoc as $LopHoc)
+                @forelse($dsSinhVien as $SinhVien)
                 <tr>
-                    <td>{{ $LopHoc->id }}</td>
-                    <td>{{ $LopHoc->ma_lop }}</td>
-                    <td>{{ $LopHoc->ten_lop }}</td>
-                    <td>{{ $LopHoc->created_at }}</td>
+                    <td>{{ $SinhVien->id }}</td>
+                    <td>{{ $SinhVien->username }}</td>
+                    <!-- <td>{{ $SinhVien->password }}</td> -->
+                    <td>{{ $SinhVien->email }}</td>
+                    <td>{{ $SinhVien->ho_ten }}</td>
+                    <td>{{ $SinhVien->sdt }}</td>
+                    <td>{{ $SinhVien->loai_tai_khoan_id }}</td>
+                    <td>{{ $SinhVien->created_at }}</td>
                 </tr>
                 @empty
                 <tr>
