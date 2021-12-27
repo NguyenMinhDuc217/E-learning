@@ -10,7 +10,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{route('chi-tiet-lop-hoc-gv',['id'=>$lopHoc->id])}}">BẢNG TIN</a></li>
                 <li>
-                    <a href="{{route('ds-sinh-vien-gv',['id'=>$lopHoc->id])}}">DANH SÁCH SINH VIÊN</a>
+                    <a href="{{route('ds-sinh-vien-gv',['id'=>$lopHoc->id])}}">MỌI NGƯỜI</a>
                 </li>
             </ul>
         </div>
@@ -54,8 +54,7 @@
                             <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v"></i>
                             </button>
                             <div class="dropdown-menu dropdownn-menu-left">
-                                <a class="dropdown-item btn ">Sửa lớp</a>
-                                <a class="dropdown-item btn">Xóa tin</a>
+                                <a class="dropdown-item btn">Kick</a>
                             </div>
                         </td>
                     </tr>

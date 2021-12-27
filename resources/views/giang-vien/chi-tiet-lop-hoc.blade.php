@@ -6,7 +6,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li><a href="{{route('chi-tiet-lop-hoc-gv',['id'=>$lopHoc->id])}}">BẢNG TIN</a></li>
             <li>
-                <a href="{{route('ds-sinh-vien-gv',['id'=>$lopHoc->id])}}">DANH SÁCH SINH VIÊN</a>
+                <a href="{{route('ds-sinh-vien-gv',['id'=>$lopHoc->id])}}">MỌI NGƯỜI</a>
             </li>
         </ul>
     </div>
@@ -14,7 +14,7 @@
         <div class="banner">
             <div class="banner-img" style="background-image: url('https://gstatic.com/classroom/themes/img_learnlanguage.jpg');"></div>
             <div class="banner-text">
-                <h3>Lop hoc 1</h3>
+                <h3>{{$lopHoc->ten_lop}}</h3>
             </div>
         </div>
     </div>

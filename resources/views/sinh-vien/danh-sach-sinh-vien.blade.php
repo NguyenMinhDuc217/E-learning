@@ -10,7 +10,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li><a href="{{route('chi-tiet-lop-hoc-sv',['id'=>$lopHoc->id])}}">BẢNG TIN</a></li>
             <li>
-                <a href="{{route('ds-sinh-vien-sv',['id'=>$lopHoc->id])}}">DANH SÁCH SINH VIÊN</a>
+                <a href="{{route('ds-sinh-vien-sv',['id'=>$lopHoc->id])}}">MỌI NGƯỜI</a>
             </li>
         </ul>
     </div>
