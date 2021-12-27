@@ -1,16 +1,4 @@
-@extends("layouts/layout")
-@section("menu")
-<li><a href="{{route('trang-chu')}}">TRANG CHỦ</a></li>
-<li><a href="{{route('tham-gia-lop')}}">THAM GIA LỚP HỌC</a></li>
-<li><a href="#">BÀI TẬP</a></li>
-<li><a><img src="{{asset('assets/img/contact.jpg')}}"></a>
-    <ul>
-        <li><a href="#">Thông tin</a></li>
-        <li><a href="{{route('dang-xuat')}}">Đăng xuất</a></li>
-    </ul>
-</li>
-@endsection
-
+@extends("layouts/layout-sinhvien")
 @section("main-content")
 <div id="ListClass">
     <div class="container set-pad">
@@ -19,7 +7,7 @@
                 <h1 data-scroll-reveal="enter from the bottom after 0.1s" class="header-line">THAM GIA LỚP</h1>
             </div>
         </div>
-        <form action="" method="POST">
+        <form action="{{route('xl-tham-gia-lop')}}" method="POST">
             @csrf
             <div class="md-3">
                 <label for="txt-ten " class="form-label h2">Mã lớp</label>

@@ -10,6 +10,11 @@ class LopHoc extends Model
     use HasFactory;
     protected $table ="lop_hoc";
     public function taiKhoan(){
-        return $this->belongstoMany('App\TaiKhoan');
+        return $this->belongsTo('App\Models\TaiKhoan');
     }
+
+    public function dstaiKhoan(){
+        return $this->belongsToMany('App\Models\TaiKhoan','tham_gia_lop');
+    }
+    
 }

@@ -17,7 +17,7 @@ class LopHocSeeder extends Seeder
     public function run()
     {
         $lh = new LopHoc();
-        $lh->ma_lop=Str::random(6);
+        $lh->ma_lop=strtoupper(Str::random(6));
         $lh->ten_lop='Cấu trúc dữ liệu và thuật toán';
         $lh->banner='';
         $lh->logo='';
@@ -39,5 +39,23 @@ class LopHocSeeder extends Seeder
         $lh->logo='';
         $lh->tai_khoan_id=('2');
         $lh->save();
+
+        $lh = new LopHoc();
+        $lh->ma_lop=Str::random(6);
+        $lh->ten_lop='Lập trình di động';
+        $lh->banner='';
+        $lh->logo='';
+        $lh->tai_khoan_id=('2');
+        $lh->save();
+        
+        $lh = new LopHoc();
+        $lh->ma_lop=Str::random(6);
+        $lh->ten_lop='Toán rời rạc';
+        $lh->banner='';
+        $lh->logo='';
+        $lh->tai_khoan_id=('2');
+        $lh->save();
+
+        
     }
 }

@@ -17,7 +17,8 @@
     <!-- CUSTOM STYLE CSS -->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
     <link href="{{asset('assets/css/index.css')}}" rel="stylesheet" />
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- Google	Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
 </head>
@@ -27,15 +28,23 @@
     <div class="navbar navbar-inverse navbar-fixed-top " id="menu">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#"><img class="logo-custom" src="{{asset('assets/img/logo180-50.png')}}" alt="" /></a>
+                <a class="navbar-brand" href="{{route('trang-chu-sinh-vien')}}"><img class="logo-custom" src="{{asset('assets/img/logo180-50.png')}}" alt="" /></a>
             </div>
             <div class="navbar-collapse collapse move-me">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{route('trang-chu')}}">TRANG CHỦ</a></li>
-                    <li><a href="{{route('danh-sach-lop-hoc' )}}">LỚP</a></li>
-                    <li><a href="{{route('danh-sach-giao-vien' )}}">GIÁO VIÊN</a></li>
-                    <li><a href="{{route('danh-sach-sinh-vien' )}}">SINH VIÊN</a></li>
-                    <li><a href="{{route('dang-xuat')}}">ĐĂNG XUẤT</a></li>
+                    <li><a href="{{route('trang-chu-sinh-vien')}}">TRANG CHỦ</a></li>
+                    <li><a href="{{route('tham-gia-lop')}}">THAM GIA LỚP HỌC</a></li>
+                    <li>
+                        <div class="dropdown" style="padding: 15px 5px;">
+                            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{Auth()->user()->ho_ten}}
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenu2">
+                                <a class="dropdown-item btn" href="{{route('thong-tin-sv')}}">Thông tin</a>
+                                <a class="dropdown-item btn" href="{{route('dang-xuat')}}">Đăng xuất</a>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>

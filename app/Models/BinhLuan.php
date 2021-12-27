@@ -10,9 +10,9 @@ class BinhLuan extends Model
     use HasFactory;
     protected $table ="binh_luan";
     public function bai(){
-        return $this->belongsTo('App\Bai');
+        return $this->belongsTo('App\Models\Bai');
     }
     public function taiKhoan(){
-        return $this->belongsTo('App\TaiKhoan');
+        return $this->belongsTo('App\Models\TaiKhoan');
     }
 }

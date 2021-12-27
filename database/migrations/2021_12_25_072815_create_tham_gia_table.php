@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class LopHoc extends Migration
+class CreateThamGiaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class LopHoc extends Migration
      */
     public function up()
     {
-        Schema::create('lop_hoc', function (Blueprint $table){
+        Schema::create('tham_gia_lop', function (Blueprint $table) {
             $table->id();
-            $table->string('ma_lop');
-            $table->string('ten_lop');
-            $table->integer('tai_khoan_id');
-            $table->string('banner'); 
+            $table->string('tai_khoan_id');
+            $table->string('lop_hoc_id');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -31,6 +28,6 @@ class LopHoc extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('tham_gia');
     }
 }

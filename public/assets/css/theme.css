@@ -63,6 +63,14 @@ button{
     transition: 1s;
     box-shadow: 8px 8px 10px #bcc4c6,-8px -8px 10px #ffffff;
 }
+.alert-danger{
+    border-radius: 50px;
+    margin-top: 5px;
+    padding:10px 10px 10px 10px;
+    color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
 button:hover{
     background-color: #3b058a;
 }
@@ -77,6 +85,9 @@ button:hover{
     text-decoration: none;
     color: #3b058a;
 }
+.box-footer a{
+    text-decoration: none;
+}
 select {
     outline: 0;
     font-size: 1em;
@@ -87,7 +98,7 @@ select {
     background: #e2ecee;
     color:#5c0ece;
     box-shadow:inset 8px 8px 10px #bcc4c6,inset -8px -8px 10px #ffffff;
-  }
+}
   
   .select {
     position: relative;
@@ -117,3 +128,4 @@ select {
     transition: .25s all ease;
     color: white;
   }
+  
