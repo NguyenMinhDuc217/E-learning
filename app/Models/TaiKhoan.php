@@ -9,12 +9,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class TaiKhoan extends Authenticatable
 {
     use HasFactory;
-    protected $table ="tai_khoan";
-    public function loaiTaiKhoan(){
+    protected $table = "tai_khoan";
+    public function loaiTaiKhoan()
+    {
         return $this->belongsTo('App\Models\LoaiTaiKhoan');
     }
 
-    public function dsLop(){
-        return $this->belongsToMany('App\Models\LopHoc','tham_gia_lop');
+    public function dsLop()
+    {
+        return $this->belongsToMany('App\Models\LopHoc', 'tham_gia_lop');
     }
 }
