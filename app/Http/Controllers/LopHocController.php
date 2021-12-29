@@ -36,7 +36,6 @@ class LopHocController extends Controller
         $lh->ma_lop = Str::random(6);
         $lh->ten_lop = $request->ten_lop;
         $lh->banner = '';
-        $lh->logo = '';
         $lh->tai_khoan_id = Auth()->user()->id;
         $lh->save();
 
