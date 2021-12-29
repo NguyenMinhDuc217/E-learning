@@ -13,7 +13,7 @@
             <div class="box">
                 <h2>User Login</h2>
                 <form action="{{route('xl-dang-nhap')}}" method="POST">
-                @csrf
+                    @csrf
                     <div class="box-group">
                         <input class="input-text" type="text" placeholder="Tên đăng nhập" name="ten_dang_nhap">
                         @error('ten_dang_nhap')
