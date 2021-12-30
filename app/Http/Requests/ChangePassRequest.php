@@ -26,16 +26,13 @@ class ChangePassRequest extends FormRequest
         return [
             'old_password' => 'required',
             'new_password' => 'required',
-            'confirm_old_password'=>'required',
         ];
     }
     public function messages()
     {
         return [
-        'confirm_old_password.required' => 'Chưa nhập lại mật khẩu cũ',
         'old_password.required' => 'Chưa nhập mật khẩu cũ',
         'new_password.required' => 'Chưa nhập mật khẩu mới',
-
         ];
     }
 }

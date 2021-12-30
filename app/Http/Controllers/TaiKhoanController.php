@@ -41,12 +41,7 @@ class TaiKhoanController extends Controller
     }
     function xlSuaMatKhau(ChangePassRequest $request)
     { 
-       
-        if ($request->old_password != $request->confirm_old_password) {
-            return view('admin/thay-doi-mat-khau');
-        }
-        
-        if(Hash::check($request->old_password,Auth()->user()->password)){   
+            if(Hash::check($request->old_password,Auth()->user()->password)){   
             $user = TaiKhoan::find(Auth()->user()->id);
             $user->password=Hash::make($request->new_password);
             $user->save();
@@ -85,11 +80,6 @@ class TaiKhoanController extends Controller
     }
     function xlSuaMatKhauSV(ChangePassRequest $request)
     { 
-       
-        if ($request->old_password != $request->confirm_old_password) {
-            return view('sinh-vien/thay-doi-mat-khau');
-        }
-        
         if(Hash::check($request->old_password,Auth()->user()->password)){   
             $user = TaiKhoan::find(Auth()->user()->id);
             $user->password=Hash::make($request->new_password);
@@ -127,11 +117,6 @@ class TaiKhoanController extends Controller
     }
     function xlSuaMatKhauGV(ChangePassRequest $request)
     { 
-       
-        if ($request->old_password != $request->confirm_old_password) {
-            return view('giang-vien/thay-doi-mat-khau');
-        }
-        
         if(Hash::check($request->old_password,Auth()->user()->password)){   
             $user = TaiKhoan::find(Auth()->user()->id);
             $user->password=Hash::make($request->new_password);

@@ -73,13 +73,6 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label>Nhập lại mật khẩu cũ</label>
-                    <input class="form-control" type="password" name="confirm_old_password">
-                    @error('confirm_old_password')
-                    <div class="alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
                     <button class="btn btn-primary" type="submit">Thay đổi</button>
                 </div>
             </form>

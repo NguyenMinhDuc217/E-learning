@@ -43,13 +43,6 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label>Nhập lại mật khẩu</label>
-                    <input class="form-control" type="password" name="confirm_password">
-                    @error('confirm_password')
-                    <div class="alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
                     <button class="btn btn-primary" type="submit">Thay đổi</button>
                 </div>
             </form>
@@ -70,13 +63,6 @@
                     <label>Mật khẩu cũ</label>
                     <input class="form-control" type="password" name="old_password">
                     @error('old_password')
-                    <div class="alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label>Nhập lại mật khẩu cũ</label>
-                    <input class="form-control" type="password" name="confirm_old_password">
-                    @error('confirm_old_password')
                     <div class="alert-danger">{{ $message }}</div>
                     @enderror
                 </div>

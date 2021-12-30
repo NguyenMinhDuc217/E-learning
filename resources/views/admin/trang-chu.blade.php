@@ -3,7 +3,7 @@
 <!--HOME SECTION TAG LINE END-->
 <div style="
     text-align: center;">
-    <H2>WELCOM {{Auth()->user()->ho_ten}}</H2>
+    <H2>Xin chào {{Auth()->user()->ho_ten}}</H2>
 </div>
 <!-- <div id="features-sec" class="container set-pad" >
     <div class="row text-center">

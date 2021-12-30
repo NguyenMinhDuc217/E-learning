@@ -11,7 +11,7 @@
     <selection>
         <div class="container">
             <div class="box">
-                <h2>Đăng kí</h2>
+                <h2>Đăng ký</h2>
                 <form action="{{route('xl-dang-ky')}}" method="POST">
                     @csrf
                     <!-- Tên đăng nhập -->
@@ -64,7 +64,7 @@
                         </select>
                     </div>
 
-                    <button type="submit">Đăng kí</button>
+                    <button type="submit">Đăng ký</button>
                 </form>
                 <div class="box-footer">
                     <p><a href="{{asset('dang-nhap')}}">Quay lại</a></p>
