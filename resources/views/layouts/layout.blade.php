@@ -35,7 +35,18 @@
                     <li><a href="{{route('danh-sach-lop-hoc' )}}">LỚP</a></li>
                     <li><a href="{{route('danh-sach-giao-vien' )}}">GIÁO VIÊN</a></li>
                     <li><a href="{{route('danh-sach-sinh-vien' )}}">SINH VIÊN</a></li>
-                    <li><a href="{{route('dang-xuat')}}">ĐĂNG XUẤT</a></li>
+                    <!-- <li><a href="{{route('dang-xuat')}}">ĐĂNG XUẤT</a></li> -->
+                    <li>
+                        <div class="dropdown" style="padding: 15px 5px;">
+                            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{Auth()->user()->ho_ten}}
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenu2">
+                                <a class="dropdown-item btn" href="{{route('thong-tin')}}">Thông tin</a>
+                                <a class="dropdown-item btn" href="{{route('dang-xuat')}}">Đăng xuất</a>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>

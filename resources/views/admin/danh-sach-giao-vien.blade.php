@@ -28,7 +28,8 @@
                 </tr>
                 @forelse($dsGiaoVien as $GiaoVien)
                 <tr>
-                    <td>{{ $GiaoVien->id }}</td>
+                    <!-- <td>{{ $GiaoVien->id }}</td> -->
+                    <td>{{ $index++ }}</td>
                     <td>{{ $GiaoVien->username }}</td>
                     <!-- <td>{{ $GiaoVien->password }}</td> -->
                     <td>{{ $GiaoVien->email }}</td>

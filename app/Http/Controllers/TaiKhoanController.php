@@ -12,6 +12,50 @@ use Illuminate\Support\Facades\Hash;
 
 class TaiKhoanController extends Controller
 {
+    function thongTin()
+    {
+        return view('admin/thong-tin');
+    }
+    function suaThongTin(ChangeRequest $request)
+    { 
+        if ($request->password != $request->confirm_password) {
+            return view('admin/thong-tin');
+        }
+        $user = TaiKhoan::find(Auth()->user()->id);
+        if(Hash::check($request->password,$user->password)){   
+            $user->ho_ten = $request->ho_ten;
+            $user->username = $request->ten_dang_nhap;
+            $user->email = $request->email;
+            $user->sdt = $request->sdt;
+            $user->save();
+            return redirect()->route('thong-tin');
+        }
+        else{
+            abort('404');
+        }
+    }    
+    function suaMatKhau()
+    { 
+       
+        return view('admin/thay-doi-mat-khau');
+    }
+    function xlSuaMatKhau(ChangePassRequest $request)
+    { 
+       
+        if ($request->old_password != $request->confirm_old_password) {
+            return view('admin/thay-doi-mat-khau');
+        }
+        
+        if(Hash::check($request->old_password,Auth()->user()->password)){   
+            $user = TaiKhoan::find(Auth()->user()->id);
+            $user->password=Hash::make($request->new_password);
+            $user->save();
+            return redirect()->route('thong-tin');
+        }
+        else{
+            abort('404');
+        }
+    }
     function thongTinSV()
     {
         return view('sinh-vien/thong-tin');

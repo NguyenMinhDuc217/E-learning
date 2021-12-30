@@ -1,11 +1,11 @@
-@extends("layouts/layout-sinhvien")
+@extends("layouts/layout")
 
 @section("main-content")
 <div class="container">
     <div style="display:flex;align-items: flex-start;justify-content: space-evenly;">
         <div class="menu-info">
             <h2>Thông tin</h2>
-            <form action="{{route('xl-thong-tin-sv')}}" method="POST">
+            <form action="{{route('xl-thong-tin')}}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label>Username</label>
@@ -53,10 +53,11 @@
                     <button class="btn btn-primary" type="submit">Thay đổi</button>
                 </div>
             </form>
+
         </div>
         <div style="width:500px">
             <h2>Đổi mật khẩu</h2>
-            <form action="{{route('xl-sua-mat-khau-sv')}}" method="POST">
+            <form action="{{route('xl-sua-mat-khau')}}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label>Mật khẩu mới</label>
