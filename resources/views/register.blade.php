@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>REGISTER</title>
+    <title>LOGIN</title>
     <link href="{{ asset('assets/css/theme.css') }}" rel="stylesheet">
 </head>
 

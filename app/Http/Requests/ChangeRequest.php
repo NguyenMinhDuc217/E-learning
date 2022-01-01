@@ -27,9 +27,11 @@ class ChangeRequest extends FormRequest
             'ten_dang_nhap' => 'required|max:10',
             'password' => 'required',
             'ho_ten'=>'required',
-            'email'=>'required|email',
+            'email'=>'required',
             'sdt'=>'required|numeric|min:10',
             'confirm_password'=>'required',
+            
+            
         ];
     }
     public function messages()
@@ -40,7 +42,6 @@ class ChangeRequest extends FormRequest
         'password.required' => 'Chưa nhập mật khẩu',
         'ho_ten.required' => 'Chưa nhập họ tên',
         'email.required' => 'Chưa nhập địa chỉ email',
-        'email.email' => 'Chưa đúng định dạng email',
         'sdt.required' => 'Chưa nhập số điện thoại',
         'sdt.numeric' => 'Số điện thoại phải là số',
         'sdt.min' => 'Số điện thoại ít nhất 10 số',

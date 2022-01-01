@@ -12,9 +12,8 @@ class LopHocController extends Controller
 {
     function layDanhSach()
     {
-        $index=1;
         $dsLopHoc = LopHoc::all();
-        return view('admin/lop-hoc', compact('dsLopHoc','index'));
+        return view('admin/lop-hoc', compact('dsLopHoc'));
     }
     function layDanhSachLopGV()
     {

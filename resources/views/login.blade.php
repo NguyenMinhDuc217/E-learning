@@ -11,7 +11,7 @@
     <selection>
         <div class="container">
             <div class="box">
-                <h2>Đăng nhập</h2>
+                <h2>User Login</h2>
                 <form action="{{route('xl-dang-nhap')}}" method="POST">
                     @csrf
                     <div class="box-group">

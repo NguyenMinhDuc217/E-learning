@@ -24,8 +24,7 @@
             </tr>
             @forelse($dsLopHoc as $LopHoc)
             <tr>
-                <!-- <td>{{ $LopHoc->id }}</td> -->
-                <td>{{ $index++ }}</td>
+                <td>{{ $LopHoc->id }}</td>
                 <td>{{ $LopHoc->ma_lop }}</td>
                 <td>{{ $LopHoc->ten_lop }}</td>
                 <td>{{ $LopHoc->created_at }}</td>

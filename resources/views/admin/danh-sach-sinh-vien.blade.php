@@ -3,6 +3,7 @@
 <!-- <div id="features-sec" class="container set-pad">
 
 </div> -->
+
 <!-- FEATURES SECTION END-->
     <div class="container set-pad">
         <div class="row text-center">
@@ -27,8 +28,7 @@
                 </tr>
                 @forelse($dsSinhVien as $SinhVien)
                 <tr>
-                    <!-- <td>{{ $SinhVien->id }}</td> -->
-                    <td>{{ $index++ }}</td>
+                    <td>{{ $SinhVien->id }}</td>
                     <td>{{ $SinhVien->username }}</td>
                     <!-- <td>{{ $SinhVien->password }}</td> -->
                     <td>{{ $SinhVien->email }}</td>
