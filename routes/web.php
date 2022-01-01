@@ -34,7 +34,8 @@ Route::middleware('auth')->group(function () {
    Route::middleware('giaovien')->group(function(){
         Route::get('/giang-vien', [LopHocController::class, 'layDanhSachLopGV'])->name("trang-chu-giang-vien");
         Route::get('/giang-vien/thong-tin', [TaiKhoanController::class, 'thongtinGV'])->name("thong-tin-gv");
-        Route::post('/giang-vien/thong-tin', [TaiKhoanController::class, 'suaThongtinGV'])->name("xl-thong-tin-gv");Route::get('/giang-vien/thong-tin/thay-doi-mat-khau', [TaiKhoanController::class, 'suaMatKhauGV'])->name("sua-mat-khau-gv");
+        Route::post('/giang-vien/thong-tin', [TaiKhoanController::class, 'suaThongtinGV'])->name("xl-thong-tin-gv");
+        Route::get('/giang-vien/thong-tin/thay-doi-mat-khau', [TaiKhoanController::class, 'suaMatKhauGV'])->name("sua-mat-khau-gv");
         Route::post('/giang-vien/thong-tin/thay-doi-mat-khau', [TaiKhoanController::class, 'xlSuaMatKhauGV'])->name("xl-sua-mat-khau-gv");
 
         Route::get('/giang-vien/tao-lop', [LopHocController::class, 'taoLop'])->name("tao-lop");
@@ -51,5 +52,11 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/lop-hoc', [LopHocController::class, 'layDanhSach'])->name('danh-sach-lop-hoc');
         Route::get('admin/giao-vien', [GiaoVienController::class, 'layDanhSach'])->name('danh-sach-giao-vien');
         Route::get('admin/sinh-vien',[SinhVienController::class, 'layDanhSach'])->name('danh-sach-sinh-vien');
+
+        Route::get('/admin/thong-tin', [TaiKhoanController::class, 'thongtin'])->name("thong-tin");
+        Route::post('/admin/thong-tin', [TaiKhoanController::class, 'suaThongtin'])->name("xl-thong-tin");
+        Route::get('/admin/thong-tin/thay-doi-mat-khau', [TaiKhoanController::class, 'suaMatKhau'])->name("sua-mat-khau");
+        Route::post('/admin/thong-tin/thay-doi-mat-khau', [TaiKhoanController::class, 'xlSuaMatKhau'])->name("xl-sua-mat-khau");
+
     });
 });

@@ -13,13 +13,6 @@
             <form action="{{route('xl-sua-mat-khau-gv')}}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label>Mật khẩu mới</label>
-                    <input class="form-control" type="password" name="new_password">
-                    @error('new_password')
-                    <div class="alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
                     <label>Mật khẩu cũ</label>
                     <input class="form-control" type="password"  name="old_password">
                     @error('old_password')
@@ -27,14 +20,24 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label>Nhập lại mật khẩu cũ</label>
-                    <input class="form-control" type="password"  name="confirm_old_password">
-                    @error('confirm_old_password')
+                    <label>Mật khẩu mới</label>
+                    <input class="form-control" type="password" name="new_password">
+                    @error('new_password')
+                    <div class="alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                
+                <div class="form-group">
+                    <label>Nhập lại mật khẩu mới</label>
+                    <input class="form-control" type="password"  name="confirm_new_password">
+                    @error('confirm_new_password')
                     <div class="alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary" type="submit">Thay đổi</button>
+                    <span class="alert-danger">{{empty($messageFail)?'':$messageFail}}</span>
+                    <span class="alert-success">{{empty($messageSuccess)?'':$messageSuccess}}</span>
                 </div>
             </form>
         </div>

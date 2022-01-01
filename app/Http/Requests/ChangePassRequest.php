@@ -24,15 +24,23 @@ class ChangePassRequest extends FormRequest
     public function rules()
     {
         return [
-            'old_password' => 'required',
-            'new_password' => 'required',
+            'old_password' => 'required|min:6',
+            'new_password' => 'required|min:6',
+            'confirm_new_password' => 'required|min:6',
+
         ];
     }
     public function messages()
     {
         return [
         'old_password.required' => 'Chưa nhập mật khẩu cũ',
+        'old_password.min' => 'Mật khẩu ít nhất 6 ký tự',
+
         'new_password.required' => 'Chưa nhập mật khẩu mới',
+        'new_password.min' => 'Mật khẩu ít nhất 6 ký tự',
+
+        'confirm_new_password.required' => 'Chưa nhập mật khẩu mới',
+        'confirm_new_password.min' => 'Mật khẩu ít nhất 6 ký tự',   
         ];
     }
 }

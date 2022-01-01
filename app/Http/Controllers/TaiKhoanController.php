@@ -18,9 +18,6 @@ class TaiKhoanController extends Controller
     }
     function suaThongTin(ChangeRequest $request)
     { 
-        if ($request->password != $request->confirm_password) {
-            return view('admin/thong-tin');
-        }
         $user = TaiKhoan::find(Auth()->user()->id);
         if(Hash::check($request->password,$user->password)){   
             $user->ho_ten = $request->ho_ten;
@@ -31,7 +28,8 @@ class TaiKhoanController extends Controller
             return redirect()->route('thong-tin');
         }
         else{
-            abort('404');
+            $messageFail="Thay đổi không thành công";
+            return  view('admin/thong-tin',compact('messageFail'));
         }
     }    
     function suaMatKhau()
@@ -41,14 +39,21 @@ class TaiKhoanController extends Controller
     }
     function xlSuaMatKhau(ChangePassRequest $request)
     { 
+        if ($request->new_password != $request->confirm_new_password) {
+            $messageFail="Mật khẩu mới không trùng nhau";
+            return  view('admin/thay-doi-mat-khau',compact('messageFail'));
+        }
             if(Hash::check($request->old_password,Auth()->user()->password)){   
             $user = TaiKhoan::find(Auth()->user()->id);
             $user->password=Hash::make($request->new_password);
             $user->save();
-            return redirect()->route('thong-tin');
+          
+            $messageSuccess="Thay đổi thành công";
+            return view('admin/thay-doi-mat-khau',compact('messageSuccess'));
         }
         else{
-            abort('404');
+            $messageFail="Thay đổi không thành công";
+            return  view('admin/thay-doi-mat-khau',compact('messageFail'));
         }
     }
     function thongTinSV()
@@ -57,9 +62,6 @@ class TaiKhoanController extends Controller
     }
     function suaThongTinSV(ChangeRequest $request)
     { 
-        if ($request->password != $request->confirm_password) {
-            return view('sinh-vien/thong-tin');
-        }
         $user = TaiKhoan::find(Auth()->user()->id);
         if(Hash::check($request->password,$user->password)){   
             $user->ho_ten = $request->ho_ten;
@@ -70,7 +72,8 @@ class TaiKhoanController extends Controller
             return redirect()->route('thong-tin-sv');
         }
         else{
-            abort('404');
+            $messageFail="Thay đổi không thành công";
+            return  view('sinh-vien/thong-tin',compact('messageFail'));
         }
     }    
     function suaMatKhauSV()
@@ -80,14 +83,20 @@ class TaiKhoanController extends Controller
     }
     function xlSuaMatKhauSV(ChangePassRequest $request)
     { 
+        if ($request->new_password != $request->confirm_new_password) {
+            $message="Mật khẩu mới không trùng nhau";
+            return  view('sinh-vien/thay-doi-mat-khau',compact('message'));
+        }
         if(Hash::check($request->old_password,Auth()->user()->password)){   
             $user = TaiKhoan::find(Auth()->user()->id);
             $user->password=Hash::make($request->new_password);
             $user->save();
-            return redirect()->route('thong-tin-sv');
+            $messageSuccess="Thay đổi thành công";
+            return view('sinh-vien/thay-doi-mat-khau',compact('messageSuccess'));
         }
         else{
-            abort('404');
+            $messageFail="Thay đổi không thành công";
+            return  view('sinh-vien/thay-doi-mat-khau',compact('messageFail'));
         }
     }
 
@@ -97,10 +106,6 @@ class TaiKhoanController extends Controller
     }
     function suaThongTinGV(ChangeRequest $request)
     { 
-       
-        if ($request->password != $request->confirm_password) {
-            return view('giang-vien/thong-tin');
-        }
         $user = TaiKhoan::find(Auth()->user()->id);
         if(Hash::check($request->password,$user->password)){   
             $user->ho_ten = $request->ho_ten;
@@ -109,6 +114,9 @@ class TaiKhoanController extends Controller
             $user->sdt = $request->sdt;
             $user->save();
             return redirect()->route('thong-tin-gv');
+        }else{
+            $messageFail="Thay đổi không thành công";
+            return  view('giang-vien/thong-tin',compact('messageFail'));
         }
     }    
     function suaMatKhauGV()
@@ -117,14 +125,20 @@ class TaiKhoanController extends Controller
     }
     function xlSuaMatKhauGV(ChangePassRequest $request)
     { 
+        if ($request->new_password != $request->confirm_new_password) {
+            $messageFail="Mật khẩu mới không trùng nhau";
+            return  view('giang-vien/thay-doi-mat-khau',compact('messageFail'));
+        }
         if(Hash::check($request->old_password,Auth()->user()->password)){   
             $user = TaiKhoan::find(Auth()->user()->id);
             $user->password=Hash::make($request->new_password);
             $user->save();
-            return redirect()->route('thong-tin-gv');
+            $messageSuccess="Thay đổi thành công";
+            return view('giang-vien/thay-doi-mat-khau',compact('messageSuccess'));
         }
         else{
-            abort('404');
+            $messageFail="Thay đổi không thành công";
+            return  view('giang-vien/thay-doi-mat-khau',compact('messageFail'));
         }
     }
 }

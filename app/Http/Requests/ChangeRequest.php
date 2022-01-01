@@ -25,13 +25,10 @@ class ChangeRequest extends FormRequest
     {
         return [
             'ten_dang_nhap' => 'required|max:10',
-            'password' => 'required',
+            'password' => 'required|min:6',
             'ho_ten'=>'required',
             'email'=>'required',
-            'sdt'=>'required|numeric|min:10',
-            'confirm_password'=>'required',
-            
-            
+            'sdt'=>'required|numeric|min:10',          
         ];
     }
     public function messages()
@@ -40,12 +37,12 @@ class ChangeRequest extends FormRequest
         'ten_dang_nhap.required' => 'Chưa nhập tên đăng nhập',
         'ten_dang_nhap.max'=>'Độ dài tối đa 10 ký tự',
         'password.required' => 'Chưa nhập mật khẩu',
+        'password.min' => 'Mật khẩu ít nhất 6 ký tự',
         'ho_ten.required' => 'Chưa nhập họ tên',
         'email.required' => 'Chưa nhập địa chỉ email',
         'sdt.required' => 'Chưa nhập số điện thoại',
         'sdt.numeric' => 'Số điện thoại phải là số',
         'sdt.min' => 'Số điện thoại ít nhất 10 số',
-        'confirm_password.required' => 'Chưa nhập lại mật khẩu',
         ];
     }
 }

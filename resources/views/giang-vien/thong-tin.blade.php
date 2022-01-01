@@ -48,14 +48,9 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label>Nhập lại mật khẩu</label>
-                    <input class="form-control" type="password"  name="confirm_password">
-                    @error('confirm_password')
-                    <div class="alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
                     <button class="btn btn-primary" type="submit">Thay đổi</button>
+                    <span class="alert-danger">{{empty($messageFail)?'':$messageFail}}</span>
+                    <span class="alert-success">{{empty($messageSuccess)?'':$messageSuccess}}</span>
                 </div>
             </form>
         </div>
