@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\DuyetThamGia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\LopHoc;
@@ -48,11 +49,34 @@ class LopHocController extends Controller
     function xlThamGiaLop(Request $request)
     {
         $lopHoc=LopHoc::where('ma_lop',"=",$request->ma_lop)->first();
-        $tgl = new ThamGiaLop();
-        $tgl->tai_khoan_id = Auth()->user()->id;
-        $tgl->lop_hoc_id =$lopHoc->id;
-        $tgl->save();
+        $dtg = new DuyetThamGia();
+        $dtg->tai_khoan_id = Auth()->user()->id;
+        $dtg->lop_hoc_id =$lopHoc->id;
+        $dtg->save();
         return redirect()-> route('trang-chu-sinh-vien');
+    }
+    function xlDuyetThamGia($idLop,$idSv)
+    {
+        
+        $dtg=DuyetThamGia::where('tai_khoan_id',"=",$idSv )->where('lop_hoc_id',"=",$idLop)->first();
+        $tgl = new ThamGiaLop();
+        $tgl->tai_khoan_id = $dtg->tai_khoan_id;
+        $tgl->lop_hoc_id =$dtg->lop_hoc_id;
+        $tgl->save();
+        $dtg->delete();
+        return redirect()-> route('ds-sinh-vien-gv',['id'=>$idLop]);
+    }
+    function xlXoaDuyetThamGia($idLop,$idSv)
+    {
+        $dtg=DuyetThamGia::where('tai_khoan_id',"=",$idSv )->where('lop_hoc_id',"=",$idLop)->first();
+        $dtg->delete();
+        return redirect()-> route('ds-sinh-vien-gv',['id'=>$idLop]);
+    }
+    function xlXoaThamGia($idLop,$idSv)
+    {
+        $tgl=ThamGiaLop::where('tai_khoan_id',"=",$idSv )->where('lop_hoc_id',"=",$idLop)->first();
+        $tgl->delete();
+        return redirect()-> route('ds-sinh-vien-gv',['id'=>$idLop]);
     }
     function chiTietLopHocGV($id)
     {
@@ -62,8 +86,7 @@ class LopHocController extends Controller
     function dsSinhVienGV($id)
     {
         $lopHoc=LopHoc::find($id);
-        $soLuongSV=$lopHoc->dstaiKhoan->count();
-        return view('giang-vien/danh-sach-sinh-vien',compact('lopHoc','soLuongSV'));
+        return view('giang-vien/danh-sach-sinh-vien',compact('lopHoc'));
     }
     function chiTietLopHocSV($id)
     {
@@ -73,7 +96,6 @@ class LopHocController extends Controller
     function dsSinhVienSV($id)
     {
         $lopHoc=LopHoc::find($id);
-        $soLuongSV=$lopHoc->dstaiKhoan->count();
-        return view('sinh-vien/danh-sach-sinh-vien',compact('lopHoc','soLuongSV'));
+        return view('sinh-vien/danh-sach-sinh-vien',compact('lopHoc'));
     }
 }

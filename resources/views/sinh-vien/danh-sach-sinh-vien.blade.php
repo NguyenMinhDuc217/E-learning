@@ -38,7 +38,7 @@
         <div style="margin-bottom: 2rem;">
             <div class="title-header">
                 <h2>Sinh Viên</h2>
-                <h4>{{$soLuongSV}} sinh viên</h4>
+                <h4>{{$lopHoc->dstaiKhoan->count()}} sinh viên</h4>
             </div>
             <hr class="hr-ds">
             <table class="info-user">
