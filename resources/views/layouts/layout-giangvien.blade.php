@@ -125,6 +125,7 @@
     <script src="{{asset('assets/js/jquery.easing.min.js')}}"></script>
     <!--  Custom Scripts -->
     <script src="{{asset('assets/js/custom.js')}}"></script>
+    @yield('script-content')
 </body>
 
 </html>

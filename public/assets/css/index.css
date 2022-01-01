@@ -261,4 +261,24 @@
     color:#fff;
     text-decoration: none;
   }
+
+  .copy-text{
+    display: flex;
+    width: 100%;
+    border-radius: 10px;
+    justify-content: space-between;
+  }
+  .copy-text input.text{
+    font-size: 15px;
+    outline: none;
+    border:none;
+    width: 80%;
+  }
+  .copy-text button{
+    font-size: 15px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+  }
  
