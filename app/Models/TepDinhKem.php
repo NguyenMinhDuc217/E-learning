@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TepDinhKem extends Model
 {
@@ -15,4 +16,5 @@ class TepDinhKem extends Model
     public function binhLuan(){
         return $this->belongsTo('App\Models\BinhLuan');
     }
+    use SoftDeletes;
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateThamGiaTable extends Migration
+class ThamGiaLopHoc extends Migration
 {
     /**
      * Run the migrations.
@@ -18,6 +18,7 @@ class CreateThamGiaTable extends Migration
             $table->string('tai_khoan_id');
             $table->string('lop_hoc_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

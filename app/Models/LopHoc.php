@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class LopHoc extends Model
 {
@@ -20,4 +21,5 @@ class LopHoc extends Model
     public function dstaiKhoanCho(){
         return $this->belongsToMany('App\Models\TaiKhoan','duyet_tham_gia');
     }
+    use SoftDeletes;
 }

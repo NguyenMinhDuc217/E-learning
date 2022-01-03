@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TaiKhoan extends Authenticatable
 {
@@ -19,4 +20,5 @@ class TaiKhoan extends Authenticatable
     {
         return $this->belongsToMany('App\Models\LopHoc', 'tham_gia_lop');
     }
+    use SoftDeletes;
 }

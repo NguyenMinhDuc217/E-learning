@@ -63,5 +63,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/thong-tin/thay-doi-mat-khau', [TaiKhoanController::class, 'suaMatKhau'])->name("sua-mat-khau");
         Route::post('/admin/thong-tin/thay-doi-mat-khau', [TaiKhoanController::class, 'xlSuaMatKhau'])->name("xl-sua-mat-khau");
 
+        Route::get('/admin/lop-hoc/them-moi-lop-hoc', [LopHocController::class, 'formThemMoiLopHoc'])->name("them-moi-lop-hoc");
+        Route::post('/admin/lop-hoc/them-moi-lop-hoc', [LopHocController::class, 'xlThemMoiLopHoc'])->name("xl-them-moi-lop-hoc");
+
+        Route::get('/admin/lop-hoc/sua-lop-hoc/{id}', [LopHocController::class, 'formSuaLopHoc'])->name("sua-lop-hoc");
+        Route::post('/admin/lop-hoc/sua-lop-hoc/{id}', [LopHocController::class, 'xlSuaLopHoc'])->name("xl-sua-lop-hoc");
+        
+        Route::get('/admin/lop-hoc/xoa-lop-hoc/{id}', [LopHocController::class, 'xlXoaLopHoc'])->name("xl-xoa-lop-hoc");
     });
 });

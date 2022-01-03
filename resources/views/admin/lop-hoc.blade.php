@@ -1,8 +1,5 @@
 @extends("layouts/layout")
 @section("main-content")
-<!-- <div id="features-sec" class="container set-pad">
-
-</div> -->
 
 <!-- FEATURES SECTION END-->
 <div class="container set-pad">
@@ -12,7 +9,7 @@
         </div>
     </div>
     <!--/.HEADER LINE END-->
-    <div><a class="btn btn-primary">Thêm mới</a></div>
+    <div><a href="{{ route('them-moi-lop-hoc') }}" class="btn btn-primary">Thêm mới</a></div>
     <div class="row">
         <table class="table">
             <tr>
@@ -29,9 +26,9 @@
                 <td>{{ $LopHoc->ten_lop }}</td>
                 <td>{{ $LopHoc->created_at }}</td>
                 <td>
-                        <a class="btn btn-warning">Sửa</a>
-                        <a class="btn btn-danger">Xóa</a>
-                    </td>
+                    <a href="{{ route('sua-lop-hoc',['id'=>$LopHoc->id]) }}" class="btn btn-warning">Sửa</a>
+                    <a href="{{ route('xl-xoa-lop-hoc',['id'=>$LopHoc->id]) }}" class="btn btn-danger">Xóa</a>
+                </td>
             </tr>
             @empty
             <tr>
