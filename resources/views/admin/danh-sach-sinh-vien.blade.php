@@ -37,8 +37,8 @@
                     <td>{{ $SinhVien->loaiTaiKhoan->ten_loai_tai_khoan }}</td>
                     <td>{{ $SinhVien->created_at }}</td>
                     <td>
-                        <a class="btn btn-warning">Sửa</a>
-                        <a class="btn btn-danger">Xóa</a>
+                        <a href="{{ route('sua-sinh-vien',['id'=>$SinhVien->id]) }}" class="btn btn-warning">Sửa</a>
+                        <a href="{{ route('xl-xoa-sinh-vien',['id'=>$SinhVien->id]) }}"  class="btn btn-danger">Xóa</a>
                     </td>
                 </tr>
                 @empty

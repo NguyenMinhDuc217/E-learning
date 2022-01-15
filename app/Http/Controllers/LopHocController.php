@@ -39,11 +39,11 @@ class LopHocController extends Controller
         return redirect()-> route('danh-sach-lop-hoc');
     }
     function formSuaLopHoc($id){
-        $lh = LopHoc::find($id)->first();
+        $lh = LopHoc::find($id);
         return view('admin/sua-lop-hoc', compact('lh'));
     }
     function xlSuaLopHoc(Request $request, $id){
-        $lh = LopHoc::find($id)->first();
+        $lh = LopHoc::find($id);
         $lh->ten_lop=$request->ten_lop;
         $lh->save();
         return redirect()-> route('danh-sach-lop-hoc');
@@ -55,22 +55,6 @@ class LopHocController extends Controller
         $lh->delete();
         return redirect()-> route('danh-sach-lop-hoc');
     }
-    // function suaThongTin(ChangeRequest $request)
-    // { 
-    //     $user = TaiKhoan::find(Auth()->user()->id);
-    //     if(Hash::check($request->password,$user->password)){   
-    //         $user->ho_ten = $request->ho_ten;
-    //         $user->username = $request->ten_dang_nhap;
-    //         $user->email = $request->email;
-    //         $user->sdt = $request->sdt;
-    //         $user->save();
-    //         return redirect()->route('thong-tin');
-    //     }
-    //     else{
-    //         $messageFail="Thay đổi không thành công";
-    //         return  view('admin/thong-tin',compact('messageFail'));
-    //     }
-    // }
     function taoLop()
     {
         return view('giang-vien/tao-lop');
@@ -93,7 +77,8 @@ class LopHocController extends Controller
     }
     function xlThamGiaLop(Request $request)
     {
-        $lopHoc=LopHoc::where('ma_lop',"=",$request->ma_lop)->first();
+        $lopHoc=LopHoc::where('ma_lop',"=",$request->ma_lop)->get();
+        dd($lopHoc);
         $dtg = new DuyetThamGia();
         $dtg->tai_khoan_id = Auth()->user()->id;
         $dtg->lop_hoc_id =$lopHoc->id;
