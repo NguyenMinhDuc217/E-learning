@@ -10,5 +10,5 @@ class ThamGiaLop extends Model
 {
     use HasFactory;
     protected $table="tham_gia_lop";
-    use SoftDeletes;
+    // use SoftDeletes;
 }
