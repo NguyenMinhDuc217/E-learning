@@ -89,9 +89,11 @@ Route::middleware('auth')->group(function () {
                 'body' => 'This is for testing email using smtp'
             ];
            
-            \Mail::to('your_receiver_email@gmail.com')->send(new \App\Mail\MyTestMail($details));
+            Mail::to('0356155012duc@gmail.com')->send(new \App\Mail\MyTestMail($details));
            
             dd("Email is Sent.");
         });
+        // Route::get('/admin/thong-tin/thay-doi-mat-khau/xac-thuc',[TaiKhoanController::class, 'formXacThuc'])->name("xac-thuc");
+        // Route::post('/admin/thong-tin/thay-doi-mat-khau/xac-thuc',[TaiKhoanController::class, 'xlXacThuc'])->name("xl-xac-thuc");
     });
 });

@@ -77,8 +77,7 @@ class LopHocController extends Controller
     }
     function xlThamGiaLop(Request $request)
     {
-        $lopHoc=LopHoc::where('ma_lop',"=",$request->ma_lop)->get();
-        dd($lopHoc);
+        $lopHoc=LopHoc::where('ma_lop',"=",$request->ma_lop)->first();
         $dtg = new DuyetThamGia();
         $dtg->tai_khoan_id = Auth()->user()->id;
         $dtg->lop_hoc_id =$lopHoc->id;
@@ -87,7 +86,6 @@ class LopHocController extends Controller
     }
     function xlDuyetThamGia($idLop,$idSv)
     {
-        
         $dtg=DuyetThamGia::where('tai_khoan_id',"=",$idSv )->where('lop_hoc_id',"=",$idLop)->first();
         $tgl = new ThamGiaLop();
         $tgl->tai_khoan_id = $dtg->tai_khoan_id;

@@ -33,8 +33,7 @@ class TaiKhoanController extends Controller
         }
     }    
     function suaMatKhau()
-    { 
-       
+    {  
         return view('admin/thay-doi-mat-khau');
     }
     function xlSuaMatKhau(ChangePassRequest $request)
@@ -56,6 +55,19 @@ class TaiKhoanController extends Controller
             return  view('admin/thay-doi-mat-khau',compact('messageFail'));
         }
     }
+    // function formXacThuc(){
+    //     return view('admin/thong-tin/thay-doi-mat-khau/xac-thuc');
+    // }
+    // function xlXacThuc(Request $request){
+    //     $details = [
+    //         'title' => 'Mail from ItSolutionStuff.com',
+    //         'body' => 'This is for testing email using smtp'
+    //     ];
+       
+    //     Mail::to('0356155012duc@gmail.com')->send(new \App\Mail\MyTestMail($details));
+       
+    //     dd("Email is Sent.");
+    // }
     function thongTinSV()
     {
         return view('sinh-vien/thong-tin');
