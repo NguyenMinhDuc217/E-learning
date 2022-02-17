@@ -4,8 +4,9 @@
     <title>ItsolutionStuff.com</title>
 </head>
 <body>
-    <h1>{{ $details['title'] }}</h1>
-    <p>{{ $details['body'] }}</p>
+    <h1>{{ $name }}</h1>
+    <p>'Xác nhận thay đổi mật khẩu'</p>
+    <p><a href="{{ route('thay-doi-mat-khau',[$idtk] )}}">Xác nhận</a></p>
    
     <p>Thank you</p>
 </body>

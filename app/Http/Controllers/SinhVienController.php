@@ -7,12 +7,27 @@ use Illuminate\Http\Request;
 use App\Models\TaiKhoan;
 use App\Models\ThamGiaLop;
 use App\Models\DuyetThamGia;
+use Illuminate\Support\Facades\Hash;
 
 class SinhVienController extends Controller
 {
     function layDanhSach(){
         $dsSinhVien=TaiKhoan::where('loai_tai_khoan_id','=',3)->get();
         return view('admin/danh-sach-sinh-vien', compact('dsSinhVien'));
+    }
+    function formThemMoiSinhVien(){
+        return view('admin/them-moi-sinh-vien');
+    }
+    function xlThemMoiSinhVien(Request $request){
+        $tk = new TaiKhoan();
+        $tk->username = $request->username;
+        $tk->password = Hash::make($request->password);
+        $tk->email=$request->email;
+        $tk->ho_ten=$request->ho_ten;
+        $tk->sdt=$request->sdt;
+        $tk->loai_tai_khoan_id=3;
+        $tk->save();
+        return redirect()-> route('danh-sach-sinh-vien');
     }
     function formSuaSinhVien($id){
         $tk = TaiKhoan::where('loai_tai_khoan_id','=',3)->find($id);

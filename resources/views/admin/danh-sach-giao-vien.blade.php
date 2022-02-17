@@ -12,7 +12,7 @@
             </div>
         </div>
         <!--/.HEADER LINE END-->
-        <div><a class="btn btn-primary">Thêm mới</a></div>
+        <div><a class="btn btn-primary" href="{{ route('them-giao-vien') }}">Thêm mới</a></div>
         <div class="row">
             <table class="table">
                 <tr>

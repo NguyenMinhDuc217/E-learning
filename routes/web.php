@@ -10,9 +10,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/dang-nhap', [LoginController::class, 'login'])->name("dang-nhap")->middleware('guest');
 Route::post('/dang-nhap', [LoginController::class, 'xuLyLogin'])->name("xl-dang-nhap");
-Route::get('/dang-ky', [RegisterController::class, 'register'])->name("dang-ky")->middleware('guest');
-Route::post('/dang-ky', [RegisterController::class, 'xuLyRegister'])->name("xl-dang-ky");
 Route::get('/dang-xuat', [LoginController::class, 'dangXuat'])->name("dang-xuat");
+
+Route::get('/quen-mat-khau', [RegisterController::class, 'quenMatKhau'])->name('quen-mat-khau');
+Route::post('/quen-mat-khau',[RegisterController::class,'xlXacThuc'])->name("xl-quen-mat-khau");
+Route::get('/quen-mat-khau/xac-nhan-mail', [RegisterController::class, 'formXacNhanMail'])->name('xac-nhan-mail');
+Route::post('/quen-mat-khau/xac-nhan-mail',[RegisterController::class,'xlXacNhanMail'])->name("xl-xac-nhan-mail");
+Route::get('/thay-doi-mat-khau/{id}',[RegisterController::class, 'formThayDoiMatKhau'])->name('thay-doi-mat-khau');
+Route::post('/thay-doi-mat-khau/{id}',[RegisterController::class, 'xlThayDoiMatKhau'])->name('xl-thay-doi-mat-khau');
 
 //Các route phải qua đăng nhập
 Route::middleware('auth')->group(function () {
@@ -71,12 +76,16 @@ Route::middleware('auth')->group(function () {
         Route::post('/admin/lop-hoc/sua-lop-hoc/{id}', [LopHocController::class, 'xlSuaLopHoc'])->name("xl-sua-lop-hoc");
         Route::get('/admin/lop-hoc/xoa-lop-hoc/{id}', [LopHocController::class, 'xlXoaLopHoc'])->name("xl-xoa-lop-hoc");
         
-        //sửa - xoá sinh viên
+        //thêm - sửa - xoá sinh viên
+        Route::get('/admin/sinh-vien/them-sinh-vien',[SinhVienController::class,'formThemMoiSinhVien'])->name("them-sinh-vien");
+        Route::post('/admin/sinh-vien/them-sinh-vien',[SinhVienController::class,'xlThemMoiSinhVien'])->name("xl-them-sinh-vien");
         Route::get('/admin/sinh-vien/sua-sinh-vien/{id}', [SinhVienController::class, 'formSuaSinhVien'])->name("sua-sinh-vien");
         Route::post('/admin/sinh-vien/sua-sinh-vien/{id}', [SinhVienController::class, 'xlSuaSinhVien'])->name("xl-sua-sinh-vien");
         Route::get('/admin/sinh-vien/xoa-sinh-vien/{id}',[SinhVienController::class, 'xlXoaSinhVien'])->name("xl-xoa-sinh-vien");
         
         //sửa - xoá giáo viên
+        Route::get('/admin/giao-vien/them-giao-vien',[GiaoVienController::class,'formThemMoiGiaoVien'])->name("them-giao-vien");
+        Route::post('/admin/giao-vien/them-giao-vien',[GiaoVienController::class,'xlThemMoiGiaoVien'])->name("xl-them-giao-vien");
         Route::get('/admin/giao-vien/sua-giao-vien/{id}', [GiaoVienController::class, 'formSuaGiaoVien'])->name("sua-giao-vien");
         Route::post('/admin/giao-vien/sua-giao-vien/{id}', [GiaoVienController::class, 'xlSuaGiaoVien'])->name("xl-sua-giao-vien");
         Route::get('/admin/giao-vien/xoa-giao-vien/{id}', [GiaoVienController::class,'xlXoaGiaoVien'])->name("xl-xoa-giao-vien");
@@ -86,7 +95,8 @@ Route::middleware('auth')->group(function () {
    
             $details = [
                 'title' => 'Mail from ItSolutionStuff.com',
-                'body' => 'This is for testing email using smtp'
+                'body' => 'This is for testing email using smtp',
+                'link' => $link
             ];
            
             Mail::to('0356155012duc@gmail.com')->send(new \App\Mail\MyTestMail($details));

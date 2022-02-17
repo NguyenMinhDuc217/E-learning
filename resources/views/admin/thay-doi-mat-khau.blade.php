@@ -1,4 +1,4 @@
-@extends("layouts/layout-giangvien")
+@extends("layouts/layout")
 
 @section("main-content")
 <div class="container">
@@ -6,7 +6,7 @@
         <div class="menu-info">
             <ul class="list-menu">
                 <li><a class="btn btn-primary" href="{{route('thong-tin')}}">Thông tin</a></li>
-                <li><a class="btn btn-primary" href="{{route('sua-mat-khau')}}">Thay đổi mật khâu</a></li>
+                <li><a class="btn btn-primary" href="{{route('sua-mat-khau')}}">Thay đổi mật khẩu</a></li>
             </ul>
         </div>
         <div style="width:500px">

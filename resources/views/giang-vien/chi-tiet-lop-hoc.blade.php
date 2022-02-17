@@ -8,6 +8,10 @@
             <li>
                 <a href="{{route('ds-sinh-vien-gv',['id'=>$lopHoc->id])}}">MỌI NGƯỜI</a>
             </li>
+            <li><a href"">BÀI GIẢNG</a></li>
+            <li><a href="">BÀI TẬP</a></li>
+            <li><a href="">BÀI KIỂM TRA</a></li>    
+            <li><a href="">THÔNG BÁO</a></li>
         </ul>
     </div>
     <div class="banner-class">
