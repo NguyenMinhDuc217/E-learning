@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\TaiKhoan;
 use App\Models\ThamGiaLop;
 use App\Models\DuyetThamGia;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class SinhVienController extends Controller
@@ -46,5 +46,12 @@ class SinhVienController extends Controller
         $duyetthamgia = DuyetThamGia::where('tai_khoan_id','=',$id)->delete();
         $tk->delete();
         return redirect()-> route('danh-sach-sinh-vien');
+
+    function resetMatKhau($id){
+        $user = TaiKhoan::find($id);
+            $user->password=Hash::make("123456");
+            $user->save();
+            return redirect()->route('danh-sach-sinh-vien');
     }
+}
 }

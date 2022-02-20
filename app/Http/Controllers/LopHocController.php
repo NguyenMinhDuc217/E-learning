@@ -72,6 +72,29 @@ class LopHocController extends Controller
 
         return redirect()-> route('trang-chu-giang-vien');
     }
+    function suaLop($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        return view('giang-vien/sua-lop-hoc',compact('lopHoc'));
+    }
+   
+    function xlSuaLop(Request $request,$id)
+    {
+
+        $lh = LopHoc::find($id);
+        $lh->ten_lop = $request->ten_lop;
+        $lh->save();
+
+        return redirect()-> route('trang-chu-giang-vien');
+    }
+    function xoaLop($id)
+    {
+        $dtg=DuyetThamGia::where('lop_hoc_id',"=",$id )->delete();
+        $tgl=ThamGiaLop::where('lop_hoc_id',"=",$id )->delete();
+        $lopHoc=LopHoc::find($id);
+        $lopHoc->delete();
+        return redirect()-> route('trang-chu-giang-vien');
+    }
     function thamGiaLop()
     {
         return view('sinh-vien/tham-gia-lop');
@@ -150,5 +173,15 @@ class LopHocController extends Controller
     {
         $lopHoc=LopHoc::find($id);
         return view('sinh-vien/danh-sach-sinh-vien',compact('lopHoc'));
+    }
+    function chiTietLopHocAD($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        return view('admin/chi-tiet-lop-hoc',compact('lopHoc'));
+    }
+    function dsSinhVienAD($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        return view('admin/danh-sach-sinh-vien-theo-lop',compact('lopHoc'));
     }
 }

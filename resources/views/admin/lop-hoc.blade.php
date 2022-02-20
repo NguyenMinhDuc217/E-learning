@@ -28,6 +28,7 @@
                 <td>
                     <a href="{{ route('sua-lop-hoc',['id'=>$LopHoc->id]) }}" class="btn btn-warning">Sửa</a>
                     <a href="{{ route('xl-xoa-lop-hoc',['id'=>$LopHoc->id]) }}" class="btn btn-danger">Xóa</a>
+                    <a class="btn btn-primary" href="{{route('chi-tiet-lop-hoc-ad',['id'=>$LopHoc->id])}}">Xem</a>
                 </td>
             </tr>
             @empty

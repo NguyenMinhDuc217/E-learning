@@ -25,8 +25,8 @@
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item btn " >Sửa lớp</a>
-                            <a class="dropdown-item btn" >Xóa lớp</a>
+                            <a class="dropdown-item btn " href="{{route('sua-lop',['id'=>$lopHoc->id])}}">Sửa lớp</a>
+                            <a class="dropdown-item btn"  href="{{route('xoa-lop',['id'=>$lopHoc->id])}}">Xóa lớp</a>
                         </div>
                     </div>
                 </div>

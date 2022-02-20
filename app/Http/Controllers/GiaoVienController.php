@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\TaiKhoan;
 use App\Models\ThamGiaLop;
 use App\Models\DuyetThamGia;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class GiaoVienController extends Controller
 {
-    function layDanhSach(){
-        $dsGiaoVien=TaiKhoan::where('loai_tai_khoan_id','=',2)->get();
+    function layDanhSach()
+    {
+        $dsGiaoVien = TaiKhoan::where('loai_tai_khoan_id', '=', 2)->get();
         return view('admin/danh-sach-giao-vien', compact('dsGiaoVien'));
     }
     function formThemMoiGiaoVien(){
@@ -47,5 +48,12 @@ class GiaoVienController extends Controller
         // $duyetthamgia = DuyetThamGia::where('tai_khoan_id','=',$id)->delete();
         $tk->delete();
         return redirect()-> route('danh-sach-giao-vien');
+    function resetMatKhau($id)
+    {
+        $user = TaiKhoan::find($id);
+        $user->password = Hash::make("123456");
+        $user->save();
+        return redirect()->route('danh-sach-giao-vien');
     }
+}
 }

@@ -49,4 +49,5 @@
             </table>
         </div>
     </div>
+    <!--/.HEADER LINE END-->   
 @endsection
