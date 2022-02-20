@@ -16,7 +16,9 @@
     </div>
     <div class="banner-class">
         <div class="banner">
-            <div class="banner-img" style="background-image: url('https://gstatic.com/classroom/themes/img_learnlanguage.jpg');"></div>
+            <div class="banner-img" >
+            <img src="{{asset('assets/img/banner.jpg')}}">
+            </div>
             <div class="banner-text">
                 <h3>{{$lopHoc->ten_lop}}</h3>
             </div>

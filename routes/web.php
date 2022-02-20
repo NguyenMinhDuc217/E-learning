@@ -49,7 +49,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/giang-vien/sua-lop/{id}', [LopHocController::class, 'xlSuaLop'])->name("xl-sua-lop");
         Route::get('/giang-vien/lop-hoc/{id}', [LopHocController::class, 'chiTietLopHocGV'])->name("chi-tiet-lop-hoc-gv");
         Route::get('/giang-vien/lop-hoc/{id}/danh-sach', [LopHocController::class, 'dsSinhVienGV'])->name("ds-sinh-vien-gv");
-        // Route::get('/giang-vien/lop-hoc/{id}/bai-giang', [LopHocController::class, 'dsBaiGiangGV'])->name("ds-bai-giang-gv");
+        Route::get('/giang-vien/lop-hoc/{id}/bai-giang', [LopHocController::class, 'dsBaiGiangGV'])->name("ds-bai-giang-gv");
         Route::get('/giang-vien/lop-hoc/{id}/bai-tap', [LopHocController::class, 'dsBaiTapGV'])->name("ds-bai-tap-gv");
         Route::get('/giang-vien/lop-hoc/{id}/bai-kiem-tra', [LopHocController::class, 'dsBaiKiemTraGV'])->name("ds-bai-kiem-tra-gv");
         Route::get('/giang-vien/lop-hoc/{id}/thong-bao', [LopHocController::class, 'dsThongBaoGV'])->name("ds-thong-bao-gv");

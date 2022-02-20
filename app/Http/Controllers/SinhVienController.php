@@ -46,12 +46,11 @@ class SinhVienController extends Controller
         $duyetthamgia = DuyetThamGia::where('tai_khoan_id','=',$id)->delete();
         $tk->delete();
         return redirect()-> route('danh-sach-sinh-vien');
-
+    }
     function resetMatKhau($id){
         $user = TaiKhoan::find($id);
             $user->password=Hash::make("123456");
             $user->save();
             return redirect()->route('danh-sach-sinh-vien');
     }
-}
 }

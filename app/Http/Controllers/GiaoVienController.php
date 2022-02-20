@@ -48,6 +48,7 @@ class GiaoVienController extends Controller
         // $duyetthamgia = DuyetThamGia::where('tai_khoan_id','=',$id)->delete();
         $tk->delete();
         return redirect()-> route('danh-sach-giao-vien');
+    }
     function resetMatKhau($id)
     {
         $user = TaiKhoan::find($id);
@@ -55,5 +56,4 @@ class GiaoVienController extends Controller
         $user->save();
         return redirect()->route('danh-sach-giao-vien');
     }
-}
 }

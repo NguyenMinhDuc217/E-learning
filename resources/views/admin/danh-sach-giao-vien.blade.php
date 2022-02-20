@@ -39,6 +39,7 @@
                     <td>
                         <a href="{{ route('sua-giao-vien',['id'=>$GiaoVien->id]) }}" class="btn btn-warning">Sửa</a>
                         <a href="{{ route('xl-xoa-giao-vien',['id'=>$GiaoVien->id]) }}" class="btn btn-danger">Xóa</a>
+                        <a class="btn btn-primary" href="{{route('reset-mat-khau-gv',['id'=>$GiaoVien->id])}}">Reset mật khẩu</a>
                     </td>
                 </tr>
                 @empty
