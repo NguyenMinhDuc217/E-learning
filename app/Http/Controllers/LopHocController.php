@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\LopHoc;
 use App\Models\ThamGiaLop;
+use App\Models\Bai;
 
 class LopHocController extends Controller
 {
@@ -109,7 +110,31 @@ class LopHocController extends Controller
     function chiTietLopHocGV($id)
     {
         $lopHoc=LopHoc::find($id);
-        return view('giang-vien/chi-tiet-lop-hoc',compact('lopHoc'));
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->get();
+        return view('giang-vien/chi-tiet-lop-hoc',compact('lopHoc','bai'));
+    }
+    function dsBaiGiangGV($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',1)->get();
+        return view('giang-vien/danh-sach-bai-giang',compact('lopHoc','bai'));
+    }
+    function dsBaiTapGV($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',2)->get();
+        return view('giang-vien/danh-sach-bai-tap',compact('lopHoc','bai'));
+    }function dsBaiKiemTraGV($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',3)->get();
+        return view('giang-vien/danh-sach-bai-kiem-tra',compact('lopHoc','bai'));
+    }
+    function dsThongBaoGV($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',4)->get();
+        return view('giang-vien/danh-sach-thong-bao',compact('lopHoc','bai'));
     }
     function dsSinhVienGV($id)
     {

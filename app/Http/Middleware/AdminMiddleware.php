@@ -28,19 +28,5 @@ class AdminMiddleware
             return redirect()-> route('trang-chu-sinh-vien');
         }
         return redirect()->route('dang-nhap');
-
-        // if(Auth::attempt(['username'=>$request->ten_dang_nhap,'password'=>$request->mat_khau])){
-        //     $user=Auth()->user()->loai_tai_khoan_id;
-        //     $u=Auth::user();
-        //     if($user==1){
-        //         return $next($request);;
-        //     }
-        //     else if($user==2){
-        //         return redirect()-> route('trang-chu-giang-vien');
-        //     }else{              
-        //         return redirect()-> route('trang-chu-sinh-vien');
-        //     }
-        // }
-        // return redirect()->route('dang-nhap');
     }
 }

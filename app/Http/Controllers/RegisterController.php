@@ -39,7 +39,6 @@ class RegisterController extends Controller
         );
         return view('register/quen-mat-khau');
     }  
-
     public function formThayDoiMatKhau($id){
         $taikhoan=TaiKhoan::find($id);
         return View('register/thay-doi-mat-khau', compact('taikhoan'));

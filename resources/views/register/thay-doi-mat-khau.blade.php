@@ -16,10 +16,10 @@
                     @csrf
                     <!--Email-->
                     <div class="box-group">
-                        <input class="input-text" type="text" placeholder="Nhập mật khẩu" name="new_password" value="{{$taikhoan->id}}">
+                        <input class="input-text" type="password" placeholder="Nhập mật khẩu" name="new_password">
                     </div>
                     <div class="box-group">
-                        <input class="input-text" type="text" placeholder="Nhập lại mật khẩu" name="confirm_new_password">
+                        <input class="input-text" type="password" placeholder="Nhập lại mật khẩu" name="confirm_new_password">
                     </div>
                     <button type="submit">Thay đổi</button>
                 </form>

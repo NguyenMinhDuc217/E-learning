@@ -48,10 +48,15 @@ Route::middleware('auth')->group(function () {
         
         Route::get('/giang-vien/lop-hoc/{id}', [LopHocController::class, 'chiTietLopHocGV'])->name("chi-tiet-lop-hoc-gv");
         Route::get('/giang-vien/lop-hoc/{id}/danh-sach', [LopHocController::class, 'dsSinhVienGV'])->name("ds-sinh-vien-gv");
+        Route::get('/giang-vien/lop-hoc/{id}/bai-giang', [LopHocController::class, 'dsBaiGiangGV'])->name("ds-bai-giang-gv");
+        Route::get('/giang-vien/lop-hoc/{id}/bai-tap', [LopHocController::class, 'dsBaiTapGV'])->name("ds-bai-tap-gv");
+        Route::get('/giang-vien/lop-hoc/{id}/bai-kiem-tra', [LopHocController::class, 'dsBaiKiemTraGV'])->name("ds-bai-kiem-tra-gv");
+        Route::get('/giang-vien/lop-hoc/{id}/thong-bao', [LopHocController::class, 'dsThongBaoGV'])->name("ds-thong-bao-gv");
 
         Route::get('/giang-vien/duyet-tham-gia/{idLop}/{idSv}', [LopHocController::class, 'xlDuyetThamGia'])->name("xl-duyet-tham-gia");
         Route::get('/giang-vien/xoa-duyet-tham-gia/{idLop}/{idSv}', [LopHocController::class, 'xlXoaDuyetThamGia'])->name("xl-xoa-duyet-tham-gia");
         Route::get('/giang-vien/xoaSV/{idLop}/{idSv}', [LopHocController::class, 'xlXoaThamGia'])->name("xl-xoa-sv-tham-gia");
+        
    });
 
     //admin
@@ -90,20 +95,5 @@ Route::middleware('auth')->group(function () {
         Route::post('/admin/giao-vien/sua-giao-vien/{id}', [GiaoVienController::class, 'xlSuaGiaoVien'])->name("xl-sua-giao-vien");
         Route::get('/admin/giao-vien/xoa-giao-vien/{id}', [GiaoVienController::class,'xlXoaGiaoVien'])->name("xl-xoa-giao-vien");
 
-        // gửi mail
-        Route::get('send-mail', function () {
-   
-            $details = [
-                'title' => 'Mail from ItSolutionStuff.com',
-                'body' => 'This is for testing email using smtp',
-                'link' => $link
-            ];
-           
-            Mail::to('0356155012duc@gmail.com')->send(new \App\Mail\MyTestMail($details));
-           
-            dd("Email is Sent.");
-        });
-        // Route::get('/admin/thong-tin/thay-doi-mat-khau/xac-thuc',[TaiKhoanController::class, 'formXacThuc'])->name("xac-thuc");
-        // Route::post('/admin/thong-tin/thay-doi-mat-khau/xac-thuc',[TaiKhoanController::class, 'xlXacThuc'])->name("xl-xac-thuc");
     });
 });

@@ -4,7 +4,7 @@
 <div class="class">
     <div class="navbar-collapse collapse move-me">
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{ route('chi-tiet-lop-hoc-gv',['id'=>$lopHoc->id]) }}">BẢNG TIN</a></li>
+        <li><a href="{{ route('chi-tiet-lop-hoc-gv',['id'=>$lopHoc->id]) }}">BẢNG TIN</a></li>
             <li>
                 <a href="{{ route('ds-sinh-vien-gv',['id'=>$lopHoc->id]) }}">MỌI NGƯỜI</a>
             </li>

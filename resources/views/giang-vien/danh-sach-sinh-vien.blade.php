@@ -8,10 +8,14 @@
     padding: 1.5rem 1.5rem;">
         <div class="navbar-collapse collapse move-me">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{route('chi-tiet-lop-hoc-gv',['id'=>$lopHoc->id])}}">BẢNG TIN</a></li>
-                <li>
-                    <a href="{{route('ds-sinh-vien-gv',['id'=>$lopHoc->id])}}">MỌI NGƯỜI</a>
-                </li>
+            <li><a href="{{ route('chi-tiet-lop-hoc-gv',['id'=>$lopHoc->id]) }}">BẢNG TIN</a></li>
+            <li>
+                <a href="{{ route('ds-sinh-vien-gv',['id'=>$lopHoc->id]) }}">MỌI NGƯỜI</a>
+            </li>
+            <li><a href="{{ route('ds-bai-giang-gv',['id'=>$lopHoc->id]) }}">BÀI GIẢNG</a></li>
+            <li><a href="{{ route('ds-bai-tap-gv',['id'=>$lopHoc->id]) }}">BÀI TẬP</a></li>
+            <li><a href="{{ route('ds-bai-kiem-tra-gv',['id'=>$lopHoc->id]) }}">BÀI KIỂM TRA</a></li>    
+            <li><a href="{{ route('ds-thong-bao-gv',['id'=>$lopHoc->id]) }}">THÔNG BÁO</a></li>
             </ul>
         </div>
         <div style="margin-bottom: 2rem;">
