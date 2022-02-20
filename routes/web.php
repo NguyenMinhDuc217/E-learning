@@ -68,17 +68,17 @@ Route::middleware('auth')->group(function () {
         })->name("trang-chu");
         Route::get('admin/lop-hoc', [LopHocController::class, 'layDanhSach'])->name('danh-sach-lop-hoc');
         Route::get('admin/giao-vien', [GiaoVienController::class, 'layDanhSach'])->name('danh-sach-giao-vien');
-        Route::get('admin/giao-vien/{id}',[GiaoVienController::class, 'resetMatKhau'])->name('reset-mat-khau-gv');
+        Route::get('admin/giao-vien/reset-mat-khau-gv/{id}',[GiaoVienController::class, 'resetMatKhau'])->name('reset-mat-khau-gv');
         Route::get('admin/sinh-vien',[SinhVienController::class, 'layDanhSach'])->name('danh-sach-sinh-vien');
 
-        Route::get('admin/sinh-vien/{id}',[SinhVienController::class, 'resetMatKhau'])->name('reset-mat-khau-sv');
+        Route::get('admin/sinh-vien/reset-mat-khau-gv/{id}',[SinhVienController::class, 'resetMatKhau'])->name('reset-mat-khau-sv');
 
         Route::get('/admin/thong-tin', [TaiKhoanController::class, 'thongtin'])->name("thong-tin");
         Route::post('/admin/thong-tin', [TaiKhoanController::class, 'suaThongtin'])->name("xl-thong-tin");
         Route::get('/admin/thong-tin/thay-doi-mat-khau', [TaiKhoanController::class, 'suaMatKhau'])->name("sua-mat-khau");
         Route::post('/admin/thong-tin/thay-doi-mat-khau', [TaiKhoanController::class, 'xlSuaMatKhau'])->name("xl-sua-mat-khau");
-        Route::get('/admin/lop-hoc/{id}', [LopHocController::class, 'chiTietLopHocAD'])->name("chi-tiet-lop-hoc-ad");
-        Route::get('/admin/lop-hoc/{id}/danh-sach', [LopHocController::class, 'dsSinhVienAD'])->name("ds-sinh-vien-ad");
+        Route::get('/admin/lop-hoc/chi-tiet-lop-hoc/{id}', [LopHocController::class, 'chiTietLopHocAD'])->name("chi-tiet-lop-hoc-ad");
+        Route::get('/admin/lop-hoc/chi-tiet-lop-hoc/{id}/danh-sach', [LopHocController::class, 'dsSinhVienAD'])->name("ds-sinh-vien-ad");
 
         Route::get('/admin/lop-hoc/them-moi-lop-hoc', [LopHocController::class, 'formThemMoiLopHoc'])->name("them-moi-lop-hoc");
         Route::post('/admin/lop-hoc/them-moi-lop-hoc', [LopHocController::class, 'xlThemMoiLopHoc'])->name("xl-them-moi-lop-hoc");
