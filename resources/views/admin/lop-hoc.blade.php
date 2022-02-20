@@ -29,9 +29,10 @@
                 <td>{{ $LopHoc->ten_lop }}</td>
                 <td>{{ $LopHoc->created_at }}</td>
                 <td>
-                        <a class="btn btn-warning">Sửa</a>
-                        <a class="btn btn-danger">Xóa</a>
-                    </td>
+                    <a class="btn btn-primary" href="{{route('chi-tiet-lop-hoc-ad',['id'=>$LopHoc->id])}}">Xem</a>
+                    <a class="btn btn-warning">Sửa</a>
+                    <a class="btn btn-danger">Xóa</a>
+                </td>
             </tr>
             @empty
             <tr>

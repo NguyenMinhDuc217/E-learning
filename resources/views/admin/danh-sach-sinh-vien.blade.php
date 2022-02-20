@@ -37,6 +37,7 @@
                     <td>{{ $SinhVien->loaiTaiKhoan->ten_loai_tai_khoan }}</td>
                     <td>{{ $SinhVien->created_at }}</td>
                     <td>
+                        <a class="btn btn-primary" href="{{route('reset-mat-khau-sv',['id'=>$SinhVien->id])}}">Reset mật khẩu</a>
                         <a class="btn btn-warning">Sửa</a>
                         <a class="btn btn-danger">Xóa</a>
                     </td>

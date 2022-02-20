@@ -40,10 +40,11 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/giang-vien/tao-lop', [LopHocController::class, 'taoLop'])->name("tao-lop");
         Route::post('/giang-vien/tao-lop', [LopHocController::class, 'xlTaoLop'])->name("xl-tao-lop");
-        
+        Route::get('/giang-vien/sua-lop/{id}', [LopHocController::class, 'suaLop'])->name("sua-lop");
+        Route::post('/giang-vien/sua-lop/{id}', [LopHocController::class, 'xlSuaLop'])->name("xl-sua-lop");
         Route::get('/giang-vien/lop-hoc/{id}', [LopHocController::class, 'chiTietLopHocGV'])->name("chi-tiet-lop-hoc-gv");
         Route::get('/giang-vien/lop-hoc/{id}/danh-sach', [LopHocController::class, 'dsSinhVienGV'])->name("ds-sinh-vien-gv");
-
+        Route::get('/giang-vien/xoa-lop/{id}', [LopHocController::class, 'xoaLop'])->name("xoa-lop");
         Route::get('/giang-vien/duyet-tham-gia/{idLop}/{idSv}', [LopHocController::class, 'xlDuyetThamGia'])->name("xl-duyet-tham-gia");
         Route::get('/giang-vien/xoa-duyet-tham-gia/{idLop}/{idSv}', [LopHocController::class, 'xlXoaDuyetThamGia'])->name("xl-xoa-duyet-tham-gia");
         Route::get('/giang-vien/xoaSV/{idLop}/{idSv}', [LopHocController::class, 'xlXoaThamGia'])->name("xl-xoa-sv-tham-gia");
@@ -56,12 +57,17 @@ Route::middleware('auth')->group(function () {
         })->name("trang-chu");
         Route::get('admin/lop-hoc', [LopHocController::class, 'layDanhSach'])->name('danh-sach-lop-hoc');
         Route::get('admin/giao-vien', [GiaoVienController::class, 'layDanhSach'])->name('danh-sach-giao-vien');
+        Route::get('admin/giao-vien/{id}',[GiaoVienController::class, 'resetMatKhau'])->name('reset-mat-khau-gv');
         Route::get('admin/sinh-vien',[SinhVienController::class, 'layDanhSach'])->name('danh-sach-sinh-vien');
+
+        Route::get('admin/sinh-vien/{id}',[SinhVienController::class, 'resetMatKhau'])->name('reset-mat-khau-sv');
 
         Route::get('/admin/thong-tin', [TaiKhoanController::class, 'thongtin'])->name("thong-tin");
         Route::post('/admin/thong-tin', [TaiKhoanController::class, 'suaThongtin'])->name("xl-thong-tin");
         Route::get('/admin/thong-tin/thay-doi-mat-khau', [TaiKhoanController::class, 'suaMatKhau'])->name("sua-mat-khau");
         Route::post('/admin/thong-tin/thay-doi-mat-khau', [TaiKhoanController::class, 'xlSuaMatKhau'])->name("xl-sua-mat-khau");
+        Route::get('/admin/lop-hoc/{id}', [LopHocController::class, 'chiTietLopHocAD'])->name("chi-tiet-lop-hoc-ad");
+        Route::get('/admin/lop-hoc/{id}/danh-sach', [LopHocController::class, 'dsSinhVienAD'])->name("ds-sinh-vien-ad");
 
     });
 });
