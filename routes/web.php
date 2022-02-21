@@ -49,10 +49,30 @@ Route::middleware('auth')->group(function () {
         Route::post('/giang-vien/sua-lop/{id}', [LopHocController::class, 'xlSuaLop'])->name("xl-sua-lop");
         Route::get('/giang-vien/lop-hoc/{id}', [LopHocController::class, 'chiTietLopHocGV'])->name("chi-tiet-lop-hoc-gv");
         Route::get('/giang-vien/lop-hoc/{id}/danh-sach', [LopHocController::class, 'dsSinhVienGV'])->name("ds-sinh-vien-gv");
+        //bài giảng
         Route::get('/giang-vien/lop-hoc/{id}/bai-giang', [LopHocController::class, 'dsBaiGiangGV'])->name("ds-bai-giang-gv");
+        Route::post('/giang-vien/bai-giang/tao-bai-giang/{id}', [LopHocController::class, 'xlThemBaiGiangGV'])->name("xl-them-bai-giang-gv");
+        Route::get('/giang-vien/bai-giang/sua-bai-giang/{id}/{idbg}', [LopHocController::class, 'formSuaBaiGiangGV'])->name("sua-bai-giang");
+        Route::post('/giang-vien/bai-giang/sua-bai-giang/{id}/{idbg}', [LopHocController::class, 'xlSuaBaiGiangGV'])->name("xl-sua-bai-giang");
+        Route::get('/giang-vien/bai-giang/xoa-bai-giang/{id}/{idbg}', [LopHocController::class, 'xoaBaiGiangGV'])->name("xl-xoa-bai-giang");
+        //bài tập
         Route::get('/giang-vien/lop-hoc/{id}/bai-tap', [LopHocController::class, 'dsBaiTapGV'])->name("ds-bai-tap-gv");
+        Route::post('/giang-vien/bai-giang/tao-bai-tap/{id}', [LopHocController::class, 'xlThemBaiTapGV'])->name("xl-them-bai-tap-gv");
+        Route::get('/giang-vien/bai-giang/sua-bai-tap/{id}/{idbt}', [LopHocController::class, 'formSuaBaiTapGV'])->name("sua-bai-tap");
+        Route::post('/giang-vien/bai-giang/sua-bai-tap/{id}/{idbt}', [LopHocController::class, 'xlSuaBaiTapGV'])->name("xl-sua-bai-tap");
+        Route::get('/giang-vien/bai-giang/xoa-bai-tap/{id}/{idbt}', [LopHocController::class, 'xoaBaiTapGV'])->name("xl-xoa-bai-tap");
+        //bài kiểm tra
         Route::get('/giang-vien/lop-hoc/{id}/bai-kiem-tra', [LopHocController::class, 'dsBaiKiemTraGV'])->name("ds-bai-kiem-tra-gv");
+        Route::post('/giang-vien/bai-giang/tao-bai-kt/{id}', [LopHocController::class, 'xlThemBaiKTGV'])->name("xl-them-bai-kt-gv");
+        Route::get('/giang-vien/bai-giang/sua-bai-kt/{id}/{idkt}', [LopHocController::class, 'formSuaBaiKTGV'])->name("sua-bai-kt");
+        Route::post('/giang-vien/bai-giang/sua-bai-kt/{id}/{idkt}', [LopHocController::class, 'xlSuaBaiKTGV'])->name("xl-sua-bai-kt");
+        Route::get('/giang-vien/bai-giang/xoa-bai-kt/{id}/{idkt}', [LopHocController::class, 'xoaBaiKTGV'])->name("xl-xoa-bai-kt");
+        //thông báo
         Route::get('/giang-vien/lop-hoc/{id}/thong-bao', [LopHocController::class, 'dsThongBaoGV'])->name("ds-thong-bao-gv");
+        Route::post('/giang-vien/bai-giang/tao-bai-tb/{id}', [LopHocController::class, 'xlThemBaiTBGV'])->name("xl-them-bai-tb-gv");
+        Route::get('/giang-vien/bai-giang/sua-bai-tb/{id}/{idtb}', [LopHocController::class, 'formSuaBaiTBGV'])->name("sua-bai-tb");
+        Route::post('/giang-vien/bai-giang/sua-bai-tb/{id}/{idtb}', [LopHocController::class, 'xlSuaBaiTBGV'])->name("xl-sua-bai-tb");
+        Route::get('/giang-vien/bai-giang/xoa-bai-tb/{id}/{idtb}', [LopHocController::class, 'xoaBaiTBGV'])->name("xl-xoa-bai-tb");
 
         Route::get('/giang-vien/xoa-lop/{id}', [LopHocController::class, 'xoaLop'])->name("xoa-lop");
         Route::get('/giang-vien/duyet-tham-gia/{idLop}/{idSv}', [LopHocController::class, 'xlDuyetThamGia'])->name("xl-duyet-tham-gia");
@@ -79,6 +99,10 @@ Route::middleware('auth')->group(function () {
         Route::post('/admin/thong-tin/thay-doi-mat-khau', [TaiKhoanController::class, 'xlSuaMatKhau'])->name("xl-sua-mat-khau");
         Route::get('/admin/lop-hoc/chi-tiet-lop-hoc/{id}', [LopHocController::class, 'chiTietLopHocAD'])->name("chi-tiet-lop-hoc-ad");
         Route::get('/admin/lop-hoc/chi-tiet-lop-hoc/{id}/danh-sach', [LopHocController::class, 'dsSinhVienAD'])->name("ds-sinh-vien-ad");
+        Route::get('/admin/lop-hoc/{id}/bai-giang', [LopHocController::class, 'dsBaiGiangAD'])->name("ds-bai-giang-ad");
+        Route::get('/admin/lop-hoc/{id}/bai-tap', [LopHocController::class, 'dsBaiTapAD'])->name("ds-bai-tap-ad");
+        Route::get('/admin/lop-hoc/{id}/bai-kiem-tra', [LopHocController::class, 'dsBaiKiemTraAD'])->name("ds-bai-kiem-tra-ad");
+        Route::get('/adminlop-hoc/{id}/thong-bao', [LopHocController::class, 'dsThongBaoAD'])->name("ds-thong-bao-ad");
 
         Route::get('/admin/lop-hoc/them-moi-lop-hoc', [LopHocController::class, 'formThemMoiLopHoc'])->name("them-moi-lop-hoc");
         Route::post('/admin/lop-hoc/them-moi-lop-hoc', [LopHocController::class, 'xlThemMoiLopHoc'])->name("xl-them-moi-lop-hoc");

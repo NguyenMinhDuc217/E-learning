@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use App\Models\LopHoc;
 use App\Models\ThamGiaLop;
 use App\Models\Bai;
+use Carbon\Carbon;
 
 class LopHocController extends Controller
 {
@@ -130,33 +131,69 @@ class LopHocController extends Controller
         $tgl->delete();
         return redirect()-> route('ds-sinh-vien-gv',['id'=>$idLop]);
     }
-    function chiTietLopHocGV($id)
+    // admin
+    function chiTietLopHocAD($id)
     {
         $lopHoc=LopHoc::find($id);
         $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->get();
+        return view('admin/chi-tiet-lop-hoc',compact('lopHoc','bai'));
+    }
+    function dsBaiGiangAD($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',1)->get();
+        return view('admin/danh-sach-bai-giang',compact('lopHoc','bai'));
+    }
+    function dsBaiTapAD($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',2)->get();
+        return view('admin/danh-sach-bai-tap',compact('lopHoc','bai'));
+    }function dsBaiKiemTraAD($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',3)->get();
+        return view('admin/danh-sach-bai-kiem-tra',compact('lopHoc','bai'));
+    }
+    function dsThongBaoAD($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',4)->get();
+        return view('admin/danh-sach-thong-bao',compact('lopHoc','bai'));
+    }
+    function dsSinhVienAD($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        return view('admin/danh-sach-sinh-vien-theo-lop',compact('lopHoc'));
+    }
+    // giáo viên
+    function chiTietLopHocGV($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->orderbydesc('ngay_tao')->get();
         return view('giang-vien/chi-tiet-lop-hoc',compact('lopHoc','bai'));
     }
     function dsBaiGiangGV($id)
     {
         $lopHoc=LopHoc::find($id);
-        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',1)->get();
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',1)->orderbydesc('ngay_tao')->get();
         return view('giang-vien/danh-sach-bai-giang',compact('lopHoc','bai'));
     }
     function dsBaiTapGV($id)
     {
         $lopHoc=LopHoc::find($id);
-        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',2)->get();
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',2)->orderbydesc('ngay_tao')->get();
         return view('giang-vien/danh-sach-bai-tap',compact('lopHoc','bai'));
     }function dsBaiKiemTraGV($id)
     {
         $lopHoc=LopHoc::find($id);
-        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',3)->get();
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',3)->orderbydesc('ngay_tao')->get();
         return view('giang-vien/danh-sach-bai-kiem-tra',compact('lopHoc','bai'));
     }
     function dsThongBaoGV($id)
     {
         $lopHoc=LopHoc::find($id);
-        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',4)->get();
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',4)->orderbydesc('ngay_tao')->get();
         return view('giang-vien/danh-sach-thong-bao',compact('lopHoc','bai'));
     }
     function dsSinhVienGV($id)
@@ -174,14 +211,144 @@ class LopHocController extends Controller
         $lopHoc=LopHoc::find($id);
         return view('sinh-vien/danh-sach-sinh-vien',compact('lopHoc'));
     }
-    function chiTietLopHocAD($id)
-    {
+   //bài giảng
+    function xlThemBaiGiangGV(Request $request, $id)
+    {   
         $lopHoc=LopHoc::find($id);
-        return view('admin/chi-tiet-lop-hoc',compact('lopHoc'));
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',1)->orderbydesc('ngay_tao')->get();
+        if($request->noi_dung!=""){           
+            $bai= new Bai();
+            $bai->ngay_tao=Carbon::now();
+            $bai->han_nop='2022-02-25';
+            $bai->diem=10;
+            $bai->noi_dung=$request->noi_dung;
+            $bai->lop_hoc_id=$lopHoc->id;
+            $bai->loai_bai_id=1;
+            $bai->save();
+            return redirect()-> route('ds-bai-giang-gv',['id'=>$id]);
+        }
+        return view('giang-vien/danh-sach-bai-giang',compact('lopHoc','bai'));
     }
-    function dsSinhVienAD($id)
+    function formSuaBaiGiangGV($id,$idbg){
+        $lopHoc = LopHoc::find($id);
+        $bai=Bai::find($idbg);
+        return view('giang-vien/sua-bai-giang', compact('lopHoc','bai'));
+    }
+    function xlSuaBaiGiangGV(Request $request, $id, $idbg){
+        $lopHoc = LopHoc::find($id);
+        $bai=Bai::find($idbg);
+        $bai->noi_dung=$request->noi_dung;
+        $bai->save();
+        return redirect()-> route('ds-bai-giang-gv',['id'=>$id]);
+    }
+    function xoaBaiGiangGV($id, $idbg)
     {
+        $bai=Bai::find($idbg)->delete();
+        return redirect()-> route('ds-bai-giang-gv',['id'=>$id]);
+    }
+    //bài tập
+    function xlThemBaiTapGV(Request $request, $id)
+    {   
         $lopHoc=LopHoc::find($id);
-        return view('admin/danh-sach-sinh-vien-theo-lop',compact('lopHoc'));
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',2)->orderbydesc('ngay_tao')->get();
+        if($request->noi_dung!=""){           
+            $bai= new Bai();
+            $bai->ngay_tao=Carbon::now();
+            $bai->han_nop='2022-02-25';
+            $bai->diem=10;
+            $bai->noi_dung=$request->noi_dung;
+            $bai->lop_hoc_id=$lopHoc->id;
+            $bai->loai_bai_id=2;
+            $bai->save();
+            return redirect()-> route('ds-bai-tap-gv',['id'=>$id]);
+        }
+        return view('giang-vien/danh-sach-bai-tap',compact('lopHoc','bai'));
+    }
+    function formSuaBaiTapGV($id,$idbt){
+        $lopHoc = LopHoc::find($id);
+        $bai=Bai::find($idbt);
+        return view('giang-vien/sua-bai-tap', compact('lopHoc','bai'));
+    }
+    function xlSuaBaiTapGV(Request $request, $id, $idbt){
+        $lopHoc = LopHoc::find($id);
+        $bai=Bai::find($idbt);
+        $bai->noi_dung=$request->noi_dung;
+        $bai->save();
+        return redirect()-> route('ds-bai-tap-gv',['id'=>$id]);
+    }
+    function xoaBaiTapGV($id, $idbg)
+    {
+        $bai=Bai::find($idbg)->delete();
+        return redirect()-> route('ds-bai-tap-gv',['id'=>$id]);
+    }
+    //bài kiểm tra
+    function xlThemBaiKTGV(Request $request, $id)
+    {   
+        $lopHoc=LopHoc::find($id);
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',3)->orderbydesc('ngay_tao')->get();
+        if($request->noi_dung!=""){           
+            $bai= new Bai();
+            $bai->ngay_tao=Carbon::now();
+            $bai->han_nop='2022-02-25';
+            $bai->diem=10;
+            $bai->noi_dung=$request->noi_dung;
+            $bai->lop_hoc_id=$lopHoc->id;
+            $bai->loai_bai_id=3;
+            $bai->save();
+            return redirect()-> route('ds-bai-kiem-tra-gv',['id'=>$id]);
+        }
+        return view('giang-vien/danh-sach-bai-kiem-tra',compact('lopHoc','bai'));
+    }
+    function formSuaBaiKTGV($id,$idkt){
+        $lopHoc = LopHoc::find($id);
+        $bai=Bai::find($idkt);
+        return view('giang-vien/sua-bai-kt', compact('lopHoc','bai'));
+    }
+    function xlSuaBaiKTGV(Request $request, $id, $idkt){
+        $lopHoc = LopHoc::find($id);
+        $bai=Bai::find($idkt);
+        $bai->noi_dung=$request->noi_dung;
+        $bai->save();
+        return redirect()-> route('ds-bai-kiem-tra-gv',['id'=>$id]);
+    }
+    function xoaBaiKTGV($id, $idkt)
+    {
+        $bai=Bai::find($idkt)->delete();
+        return redirect()-> route('ds-bai-kiem-tra-gv',['id'=>$id]);
+    }
+    //thông báo
+    function xlThemBaiTBGV(Request $request, $id)
+    {   
+        $lopHoc=LopHoc::find($id);
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',4)->orderbydesc('ngay_tao')->get();
+        if($request->noi_dung!=""){           
+            $bai= new Bai();
+            $bai->ngay_tao=Carbon::now();
+            $bai->han_nop='2022-02-25';
+            $bai->diem=10;
+            $bai->noi_dung=$request->noi_dung;
+            $bai->lop_hoc_id=$lopHoc->id;
+            $bai->loai_bai_id=4;
+            $bai->save();
+            return redirect()-> route('ds-thong-bao-gv',['id'=>$id]);
+        }
+        return view('giang-vien/danh-sach-bai-thong-bao',compact('lopHoc','bai'));
+    }
+    function formSuaBaiTBGV($id,$idkt){
+        $lopHoc = LopHoc::find($id);
+        $bai=Bai::find($idkt);
+        return view('giang-vien/sua-thong-bao', compact('lopHoc','bai'));
+    }
+    function xlSuaBaiTBGV(Request $request, $id, $idtb){
+        $lopHoc = LopHoc::find($id);
+        $bai=Bai::find($idtb);
+        $bai->noi_dung=$request->noi_dung;
+        $bai->save();
+        return redirect()-> route('ds-thong-bao-gv',['id'=>$id]);
+    }
+    function xoaBaiTBGV($id, $idtb)
+    {
+        $bai=Bai::find($idtb)->delete();
+        return redirect()-> route('ds-thong-bao-gv',['id'=>$id]);
     }
 }

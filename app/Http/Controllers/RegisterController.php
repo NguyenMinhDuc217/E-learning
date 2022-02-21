@@ -51,16 +51,6 @@ class RegisterController extends Controller
         }
         else{
             $matkhau=$request->new_password;
-            // if(Hash::check($matkhau,$tk->password)){   
-            //     $tk->password=Hash::make($matkhau);
-            //     $tk->save();
-            //     $messageSuccess="Thay đổi thành công";
-            //     return view('dang-nhap',compact('messageSuccess'));
-            // }
-            // else{
-            //     $messageFail="Thay đổi không thành công";
-            //     return  view('register/thay-doi-mat-khau',compact('messageFail'));
-            // }
                 $tk->password=Hash::make($matkhau);
                 $tk->save();
                 $messageSuccess="Thay đổi thành công";
