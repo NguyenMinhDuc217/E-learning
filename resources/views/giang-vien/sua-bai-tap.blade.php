@@ -9,7 +9,7 @@
     <form action="{{ route('xl-sua-bai-tap',['id'=>$lopHoc->id, 'idbt'=>$bai->id]) }}" method="POST">
         @csrf
         <div class="md-3">
-            <label for="txt-ten " class="form-label h2">nội dung</label>
+            <label for="txt-ten " class="form-label h2">Nội dung</label>
             <input type="text" class="form-control  h3" name="noi_dung" placeholder="Nội dung" value="{{$bai->noi_dung}}">
         </div>
         <button type="submit" class="btn btn-success">Sửa bài tập</button>

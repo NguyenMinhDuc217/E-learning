@@ -33,6 +33,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/sinh-vien/tham-gia-lop',[LopHocController::class, 'xlThamGiaLop'])->name("xl-tham-gia-lop");
         Route::get('/sinh-vien/lop-hoc/{id}', [LopHocController::class, 'chiTietLopHocSV'])->name("chi-tiet-lop-hoc-sv");
         Route::get('/sinh-vien/lop-hoc/{id}/danh-sach', [LopHocController::class, 'dsSinhVienSV'])->name("ds-sinh-vien-sv");
+
+        //bài giảng
+        Route::get('/sinh-vien/lop-hoc/{id}/bai-giang', [LopHocController::class, 'dsBaiGiangSV'])->name("ds-bai-giang-sv");
+        //bài tập
+        Route::get('/sinh-vien/lop-hoc/{id}/bai-tap', [LopHocController::class, 'dsBaiTapSV'])->name("ds-bai-tap-sv");
+        //bài kiểm tra
+        Route::get('/sinh-vien/lop-hoc/{id}/bai-kiem-tra', [LopHocController::class, 'dsBaiKiemTraSV'])->name("ds-bai-kiem-tra-sv");
+        //thông báo
+        Route::get('/sinh-vien/lop-hoc/{id}/thong-bao', [LopHocController::class, 'dsThongBaoSV'])->name("ds-thong-bao-sv");
     });
 
     //Giang vien

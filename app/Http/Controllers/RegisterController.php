@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\ThayDoiMatKhauRequest;
 use App\Models\TaiKhoan;
 use App\Models\ThongBaoMail;
 use Illuminate\Support\Facades\Hash;
@@ -56,6 +57,5 @@ class RegisterController extends Controller
                 $messageSuccess="Thay đổi thành công";
                 return view('login',compact('messageSuccess'));
         }
-        
     }
 }

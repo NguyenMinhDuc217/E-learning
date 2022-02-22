@@ -201,11 +201,6 @@ class LopHocController extends Controller
         $lopHoc=LopHoc::find($id);
         return view('giang-vien/danh-sach-sinh-vien',compact('lopHoc'));
     }
-    function chiTietLopHocSV($id)
-    {
-        $lopHoc=LopHoc::find($id);
-        return view('sinh-vien/chi-tiet-lop-hoc',compact('lopHoc'));
-    }
     function dsSinhVienSV($id)
     {
         $lopHoc=LopHoc::find($id);
@@ -350,5 +345,35 @@ class LopHocController extends Controller
     {
         $bai=Bai::find($idtb)->delete();
         return redirect()-> route('ds-thong-bao-gv',['id'=>$id]);
+    }
+    //sinh viên
+    function chiTietLopHocSV($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->orderbydesc('ngay_tao')->get();
+        return view('sinh-vien/chi-tiet-lop-hoc',compact('lopHoc', 'bai'));
+    }
+    function dsBaiGiangSV($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',1)->orderbydesc('ngay_tao')->get();
+        return view('sinh-vien/danh-sach-bai-giang',compact('lopHoc','bai'));
+    }
+    function dsBaiTapSV($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',2)->orderbydesc('ngay_tao')->get();
+        return view('sinh-vien/danh-sach-bai-tap',compact('lopHoc','bai'));
+    }function dsBaiKiemTraSV($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',3)->orderbydesc('ngay_tao')->get();
+        return view('sinh-vien/danh-sach-bai-kiem-tra',compact('lopHoc','bai'));
+    }
+    function dsThongBaoSV($id)
+    {
+        $lopHoc=LopHoc::find($id);
+        $bai=Bai::where('lop_hoc_id','=',$lopHoc->id)->where('loai_bai_id','=',4)->orderbydesc('ngay_tao')->get();
+        return view('sinh-vien/danh-sach-thong-bao',compact('lopHoc','bai'));
     }
 }

@@ -17,9 +17,15 @@
                     <!--Email-->
                     <div class="box-group">
                         <input class="input-text" type="password" placeholder="Nhập mật khẩu" name="new_password">
+                        <!-- @error('new_password')
+                        <div class="alert-danger">{{ $message }}</div>
+                        @enderror -->
                     </div>
                     <div class="box-group">
                         <input class="input-text" type="password" placeholder="Nhập lại mật khẩu" name="confirm_new_password">
+                        <!-- @error('confirm_new_password')
+                        <div class="alert-danger">{{ $message }}</div>
+                        @enderror -->
                     </div>
                     <button type="submit">Thay đổi</button>
                 </form>

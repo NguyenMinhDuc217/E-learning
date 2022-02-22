@@ -25,15 +25,6 @@
         </div>
     </div>
     <div class="show-group">
-        <!-- <div class="form-show">
-            <div class="form-group">
-                <textarea class="form-control" name="message" placeholder="Thông báo nội dung nào đó cho lớp học của bạn"></textarea>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-primary">Đăng</button>
-                <button class="btn btn-primary">Đính kèm tệp</button>
-            </div>
-        </div> -->
         <div class="post-show">
         @foreach($bai as $b) <div class="post">
                 <div class="main-post">

@@ -12,6 +12,10 @@
             <li>
                 <a href="{{route('ds-sinh-vien-sv',['id'=>$lopHoc->id])}}">MỌI NGƯỜI</a>
             </li>
+            <li><a href="{{ route('ds-bai-giang-sv',['id'=>$lopHoc->id]) }}">BÀI GIẢNG</a></li>
+            <li><a href="{{ route('ds-bai-tap-sv',['id'=>$lopHoc->id]) }}">BÀI TẬP</a></li>
+            <li><a href="{{ route('ds-bai-kiem-tra-sv',['id'=>$lopHoc->id]) }}">BÀI KIỂM TRA</a></li>    
+            <li><a href="{{ route('ds-thong-bao-sv',['id'=>$lopHoc->id]) }}">THÔNG BÁO</a></li>
         </ul>
     </div>
         <div style="margin-bottom: 2rem;">
